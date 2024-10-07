@@ -1,0 +1,9 @@
+.Diff-Editor-Image-Insert {
+    background: rgba(102, 229, 119, .35);
+    padding: 10px;
+}
+
+.Diff-Editor-Image-Delete {
+    background: rgba(229, 102, 134,.35);
+    padding: 10px;
+}

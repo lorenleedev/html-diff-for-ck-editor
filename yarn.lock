@@ -1673,6 +1673,11 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
+"@spendit-dev/editor@^0.0.51-canary":
+  version "0.0.51-canary"
+  resolved "https://registry.yarnpkg.com/@spendit-dev/editor/-/editor-0.0.51-canary.tgz#9e7b9e851c819fb2f33c84e914182e14aa094fe3"
+  integrity sha512-2zneP+m/fbiZq8fji6OmWQQHh/re/Be8UGXzf/DKP+jLEiPTzk5rLRif5j7RBIROEfGo/xvdn3CpQy4JzSKqnw==
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"

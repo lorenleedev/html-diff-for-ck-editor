@@ -43,7 +43,11 @@ import {
 } from "@ckeditor/ckeditor5-image";
 import {Base64UploadAdapter} from "@ckeditor/ckeditor5-upload";
 import {ClassicEditor} from '@ckeditor/ckeditor5-editor-classic';
-import diff from "../package/main";
+import CustomFigureAttributes from "./CustomFigureAttributes.js"
+
+// TODO: ../package/main.ts를 완성 후 변경
+import diff from "../sample/temp.ts";
+
 export interface InitEditorResponse {
   editor: ClassicEditor | null;
 }
@@ -182,6 +186,7 @@ const defaultEditorOptions: EditorConfigForCK = {
     ImageUpload,
     Base64UploadAdapter
   ],
+  extraPlugins: [CustomFigureAttributes]
 }
 
 const initEditor = async ({
@@ -200,18 +205,6 @@ const initEditor = async ({
   const editor = await ClassicEditor
     .create(element, editorOptions)
     .then(editor => {
-      // if (onContentChange) {
-      //   editor.model.document.on('change:data', () => {
-      //     onContentChange(editor.getData());
-      //   });
-      // }
-      // if (onBlur) {
-      //   editor.ui.focusTracker.on('change:isFocused', (_event, _name, isFocused) => {
-      //     if (!isFocused) {
-      //       onBlur(editor.getData());
-      //     }
-      //   });
-      // }
       return editor;
     })
     .catch(error => {
@@ -280,7 +273,10 @@ const initialize= async () => {
   diffButton.addEventListener('click', async () => {
     const previousContent = beforeEditor.getData();
     const currentContent = afterEditor.getData();
+    console.log('previousContent', previousContent);
+    console.log('currentContent', currentContent)
     const diffContent = diff(previousContent, currentContent);
+    console.log('diff content', diffContent)
     diffEditor.setData(diffContent);
   });
 })();
