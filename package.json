@@ -7,6 +7,7 @@
   "scripts": {
     "test": "jest",
     "sample": "tsc && vite build --config vite.config.sample.js && vite preview --port 3003 --open",
+    "sample:deploy": "tsc && vite build --config vite.config.sample.js",
     "package": "tsc && vite build --config vite.config.package.js"
   },
   "repository": {
