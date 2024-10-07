@@ -1,6 +1,6 @@
 {
-  "name": "html-diff-for-ck-editor",
-  "version": "1.0.0-canary",
+  "name": "@lorenleedev/html-diff-for-ck-editor",
+  "version": "1.0.1-canary",
   "description": "Rendered Html Diff Library For CK-Editor",
   "main": "index.js",
   "module": "dist/index.mjs",
@@ -8,7 +8,7 @@
     "test": "jest",
     "sample": "tsc && vite build --config vite.config.sample.js && vite preview --port 3003 --open",
     "sample:deploy": "tsc && vite build --config vite.config.sample.js",
-    "package": "tsc && vite build --config vite.config.package.js"
+    "deploy": "tsc && vite build --config vite.config.package.js && npm publish"
   },
   "repository": {
     "type": "git",
