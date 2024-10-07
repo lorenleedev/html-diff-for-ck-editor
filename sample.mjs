@@ -52,7 +52,7 @@ const Jt = $b(), M = {
     return Xb();
   },
   get isMotionReduced() {
-    return Qb();
+    return Yb();
   },
   features: {
     isRegExpUnicodePropertySupported: Jb()
@@ -90,7 +90,7 @@ function Jb() {
 function Xb() {
   return E.window.matchMedia ? E.window.matchMedia("(forced-colors: active)").matches : !1;
 }
-function Qb() {
+function Yb() {
   return E.window.matchMedia ? E.window.matchMedia("(prefers-reduced-motion)").matches : !1;
 }
 /**
@@ -101,10 +101,10 @@ function of(i, e, t, n) {
   t = t || function(l, c) {
     return l === c;
   };
-  const s = Array.isArray(i) ? i : Array.prototype.slice.call(i), o = Array.isArray(e) ? e : Array.prototype.slice.call(e), r = Yb(s, o, t);
+  const s = Array.isArray(i) ? i : Array.prototype.slice.call(i), o = Array.isArray(e) ? e : Array.prototype.slice.call(e), r = Qb(s, o, t);
   return n ? tw(r, o.length) : ew(o, r);
 }
-function Yb(i, e, t) {
+function Qb(i, e, t) {
   const n = ec(i, e, t);
   if (n === -1)
     return { firstIndex: -1, lastIndexOld: -1, lastIndexNew: -1 };
@@ -665,7 +665,7 @@ function Xw(i) {
     return i.apply(void 0, arguments);
   };
 }
-function Qw(i) {
+function Yw(i) {
   return function() {
     return i;
   };
@@ -676,14 +676,14 @@ var mo = function() {
     return i({}, "", {}), i;
   } catch (e) {
   }
-}(), Yw = mo ? function(i, e) {
+}(), Qw = mo ? function(i, e) {
   return mo(i, "toString", {
     configurable: !0,
     enumerable: !1,
-    value: Qw(e),
+    value: Yw(e),
     writable: !0
   });
-} : Dt, e0 = Xw(Yw);
+} : Dt, e0 = Xw(Qw);
 function t0(i, e) {
   for (var t = -1, n = i == null ? 0 : i.length; ++t < n && e(i[t], t, i) !== !1; )
     ;
@@ -830,22 +830,22 @@ function J0(i) {
       e.push(t);
   return e;
 }
-var X0 = Object.prototype, Q0 = X0.hasOwnProperty;
-function Y0(i) {
+var X0 = Object.prototype, Y0 = X0.hasOwnProperty;
+function Q0(i) {
   if (!J(i))
     return J0(i);
   var e = Za(i), t = [];
   for (var n in i)
-    n == "constructor" && (e || !Q0.call(i, n)) || t.push(n);
+    n == "constructor" && (e || !Y0.call(i, n)) || t.push(n);
   return t;
 }
 function ci(i) {
-  return li(i) ? yf(i, !0) : Y0(i);
+  return li(i) ? yf(i, !0) : Q0(i);
 }
 var kf = bf(function(i, e) {
   ai(e, ci(e), i);
 }), e1 = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, t1 = /^\w*$/;
-function Qa(i, e) {
+function Ya(i, e) {
   if (Be(i))
     return !1;
   var t = typeof i;
@@ -973,7 +973,7 @@ Mt.prototype.get = k1;
 Mt.prototype.has = T1;
 Mt.prototype.set = E1;
 var A1 = "Expected a function";
-function Ya(i, e) {
+function Qa(i, e) {
   if (typeof i != "function" || e != null && typeof e != "function")
     throw new TypeError(A1);
   var t = function() {
@@ -983,12 +983,12 @@ function Ya(i, e) {
     var r = i.apply(this, n);
     return t.cache = o.set(s, r) || o, r;
   };
-  return t.cache = new (Ya.Cache || Mt)(), t;
+  return t.cache = new (Qa.Cache || Mt)(), t;
 }
-Ya.Cache = Mt;
+Qa.Cache = Mt;
 var x1 = 500;
 function I1(i) {
-  var e = Ya(i, function(n) {
+  var e = Qa(i, function(n) {
     return t.size === x1 && t.clear(), n;
   }), t = e.cache;
   return e;
@@ -1003,7 +1003,7 @@ function el(i) {
   return i == null ? "" : gf(i);
 }
 function $o(i, e) {
-  return Be(i) ? i : Qa(i, e) ? [i] : R1(el(i));
+  return Be(i) ? i : Ya(i, e) ? [i] : R1(el(i));
 }
 var V1 = 1 / 0;
 function ui(i) {
@@ -1055,7 +1055,7 @@ function xf(i) {
 function j1(i) {
   return i.split("");
 }
-var If = "\\ud800-\\udfff", K1 = "\\u0300-\\u036f", Z1 = "\\ufe20-\\ufe2f", J1 = "\\u20d0-\\u20ff", X1 = K1 + Z1 + J1, Q1 = "\\ufe0e\\ufe0f", Y1 = "[" + If + "]", Xr = "[" + X1 + "]", Qr = "\\ud83c[\\udffb-\\udfff]", e_ = "(?:" + Xr + "|" + Qr + ")", Sf = "[^" + If + "]", Pf = "(?:\\ud83c[\\udde6-\\uddff]){2}", Rf = "[\\ud800-\\udbff][\\udc00-\\udfff]", t_ = "\\u200d", Vf = e_ + "?", Mf = "[" + Q1 + "]?", n_ = "(?:" + t_ + "(?:" + [Sf, Pf, Rf].join("|") + ")" + Mf + Vf + ")*", i_ = Mf + Vf + n_, s_ = "(?:" + [Sf + Xr + "?", Xr, Pf, Rf, Y1].join("|") + ")", o_ = RegExp(Qr + "(?=" + Qr + ")|" + s_ + i_, "g");
+var If = "\\ud800-\\udfff", K1 = "\\u0300-\\u036f", Z1 = "\\ufe20-\\ufe2f", J1 = "\\u20d0-\\u20ff", X1 = K1 + Z1 + J1, Y1 = "\\ufe0e\\ufe0f", Q1 = "[" + If + "]", Xr = "[" + X1 + "]", Yr = "\\ud83c[\\udffb-\\udfff]", e_ = "(?:" + Xr + "|" + Yr + ")", Sf = "[^" + If + "]", Pf = "(?:\\ud83c[\\udde6-\\uddff]){2}", Rf = "[\\ud800-\\udbff][\\udc00-\\udfff]", t_ = "\\u200d", Vf = e_ + "?", Mf = "[" + Y1 + "]?", n_ = "(?:" + t_ + "(?:" + [Sf, Pf, Rf].join("|") + ")" + Mf + Vf + ")*", i_ = Mf + Vf + n_, s_ = "(?:" + [Sf + Xr + "?", Xr, Pf, Rf, Q1].join("|") + ")", o_ = RegExp(Yr + "(?=" + Yr + ")|" + s_ + i_, "g");
 function r_(i) {
   return i.match(o_) || [];
 }
@@ -1146,7 +1146,7 @@ function Nf(i, e, t) {
   var n = e(i);
   return Be(i) ? n : Tf(n, t(i));
 }
-function Yr(i) {
+function Qr(i) {
   return Nf(i, fs, il);
 }
 function E_(i) {
@@ -1197,7 +1197,7 @@ function Df(i, e) {
   var t = e ? sl(i.buffer) : i.buffer;
   return new i.constructor(t, i.byteOffset, i.length);
 }
-var D_ = "[object Boolean]", z_ = "[object Date]", H_ = "[object Map]", U_ = "[object Number]", $_ = "[object RegExp]", W_ = "[object Set]", q_ = "[object String]", G_ = "[object Symbol]", j_ = "[object ArrayBuffer]", K_ = "[object DataView]", Z_ = "[object Float32Array]", J_ = "[object Float64Array]", X_ = "[object Int8Array]", Q_ = "[object Int16Array]", Y_ = "[object Int32Array]", ev = "[object Uint8Array]", tv = "[object Uint8ClampedArray]", nv = "[object Uint16Array]", iv = "[object Uint32Array]";
+var D_ = "[object Boolean]", z_ = "[object Date]", H_ = "[object Map]", U_ = "[object Number]", $_ = "[object RegExp]", W_ = "[object Set]", q_ = "[object String]", G_ = "[object Symbol]", j_ = "[object ArrayBuffer]", K_ = "[object DataView]", Z_ = "[object Float32Array]", J_ = "[object Float64Array]", X_ = "[object Int8Array]", Y_ = "[object Int16Array]", Q_ = "[object Int32Array]", ev = "[object Uint8Array]", tv = "[object Uint8ClampedArray]", nv = "[object Uint16Array]", iv = "[object Uint32Array]";
 function sv(i, e, t) {
   var n = i.constructor;
   switch (e) {
@@ -1211,8 +1211,8 @@ function sv(i, e, t) {
     case Z_:
     case J_:
     case X_:
-    case Q_:
     case Y_:
+    case Q_:
     case ev:
     case tv:
     case nv:
@@ -1242,9 +1242,9 @@ var xc = Jn && Jn.isMap, av = xc ? Ja(xc) : rv, lv = "[object Set]";
 function cv(i) {
   return Ke(i) && et(i) == lv;
 }
-var Ic = Jn && Jn.isSet, uv = Ic ? Ja(Ic) : cv, dv = 1, hv = 2, fv = 4, Hf = "[object Arguments]", mv = "[object Array]", gv = "[object Boolean]", pv = "[object Date]", bv = "[object Error]", Uf = "[object Function]", wv = "[object GeneratorFunction]", _v = "[object Map]", vv = "[object Number]", $f = "[object Object]", yv = "[object RegExp]", Cv = "[object Set]", kv = "[object String]", Tv = "[object Symbol]", Ev = "[object WeakMap]", Av = "[object ArrayBuffer]", xv = "[object DataView]", Iv = "[object Float32Array]", Sv = "[object Float64Array]", Pv = "[object Int8Array]", Rv = "[object Int16Array]", Vv = "[object Int32Array]", Mv = "[object Uint8Array]", Bv = "[object Uint8ClampedArray]", Lv = "[object Uint16Array]", Ov = "[object Uint32Array]", Q = {};
-Q[Hf] = Q[mv] = Q[Av] = Q[xv] = Q[gv] = Q[pv] = Q[Iv] = Q[Sv] = Q[Pv] = Q[Rv] = Q[Vv] = Q[_v] = Q[vv] = Q[$f] = Q[yv] = Q[Cv] = Q[kv] = Q[Tv] = Q[Mv] = Q[Bv] = Q[Lv] = Q[Ov] = !0;
-Q[bv] = Q[Uf] = Q[Ev] = !1;
+var Ic = Jn && Jn.isSet, uv = Ic ? Ja(Ic) : cv, dv = 1, hv = 2, fv = 4, Hf = "[object Arguments]", mv = "[object Array]", gv = "[object Boolean]", pv = "[object Date]", bv = "[object Error]", Uf = "[object Function]", wv = "[object GeneratorFunction]", _v = "[object Map]", vv = "[object Number]", $f = "[object Object]", yv = "[object RegExp]", Cv = "[object Set]", kv = "[object String]", Tv = "[object Symbol]", Ev = "[object WeakMap]", Av = "[object ArrayBuffer]", xv = "[object DataView]", Iv = "[object Float32Array]", Sv = "[object Float64Array]", Pv = "[object Int8Array]", Rv = "[object Int16Array]", Vv = "[object Int32Array]", Mv = "[object Uint8Array]", Bv = "[object Uint8ClampedArray]", Lv = "[object Uint16Array]", Ov = "[object Uint32Array]", Y = {};
+Y[Hf] = Y[mv] = Y[Av] = Y[xv] = Y[gv] = Y[pv] = Y[Iv] = Y[Sv] = Y[Pv] = Y[Rv] = Y[Vv] = Y[_v] = Y[vv] = Y[$f] = Y[yv] = Y[Cv] = Y[kv] = Y[Tv] = Y[Mv] = Y[Bv] = Y[Lv] = Y[Ov] = !0;
+Y[bv] = Y[Uf] = Y[Ev] = !1;
 function Kn(i, e, t, n, s, o) {
   var r, a = e & dv, l = e & hv, c = e & fv;
   if (t && (r = s ? t(i, n, s, o) : t(i)), r !== void 0)
@@ -1263,7 +1263,7 @@ function Kn(i, e, t, n, s, o) {
       if (r = l || h ? {} : zf(i), !a)
         return l ? T_(i, b_(r, i)) : C_(i, p_(r, i));
     } else {
-      if (!Q[d])
+      if (!Y[d])
         return s ? i : {};
       r = sv(i, d, a);
     }
@@ -1277,7 +1277,7 @@ function Kn(i, e, t, n, s, o) {
   }) : av(i) && i.forEach(function(w, v) {
     r.set(v, Kn(w, e, t, v, i, o));
   });
-  var m = c ? l ? E_ : Yr : l ? ci : fs, p = u ? void 0 : m(i);
+  var m = c ? l ? E_ : Qr : l ? ci : fs, p = u ? void 0 : m(i);
   return t0(p || i, function(w, v) {
     p && (v = w, w = i[v]), ja(r, v, Kn(w, e, t, v, i, o));
   }), r;
@@ -1363,7 +1363,7 @@ function Jv(i) {
     t[++e] = n;
   }), t;
 }
-var Xv = 1, Qv = 2, Yv = "[object Boolean]", ey = "[object Date]", ty = "[object Error]", ny = "[object Map]", iy = "[object Number]", sy = "[object RegExp]", oy = "[object Set]", ry = "[object String]", ay = "[object Symbol]", ly = "[object ArrayBuffer]", cy = "[object DataView]", Sc = gt ? gt.prototype : void 0, br = Sc ? Sc.valueOf : void 0;
+var Xv = 1, Yv = 2, Qv = "[object Boolean]", ey = "[object Date]", ty = "[object Error]", ny = "[object Map]", iy = "[object Number]", sy = "[object RegExp]", oy = "[object Set]", ry = "[object String]", ay = "[object Symbol]", ly = "[object ArrayBuffer]", cy = "[object DataView]", Sc = gt ? gt.prototype : void 0, br = Sc ? Sc.valueOf : void 0;
 function uy(i, e, t, n, s, o, r) {
   switch (t) {
     case cy:
@@ -1372,7 +1372,7 @@ function uy(i, e, t, n, s, o, r) {
       i = i.buffer, e = e.buffer;
     case ly:
       return !(i.byteLength != e.byteLength || !o(new po(i), new po(e)));
-    case Yv:
+    case Qv:
     case ey:
     case iy:
       return hs(+i, +e);
@@ -1390,7 +1390,7 @@ function uy(i, e, t, n, s, o, r) {
       var c = r.get(i);
       if (c)
         return c == e;
-      n |= Qv, r.set(i, e);
+      n |= Yv, r.set(i, e);
       var u = qf(a(i), a(e), n, s, o, r);
       return r.delete(i), u;
     case ay:
@@ -1401,7 +1401,7 @@ function uy(i, e, t, n, s, o, r) {
 }
 var dy = 1, hy = Object.prototype, fy = hy.hasOwnProperty;
 function my(i, e, t, n, s, o) {
-  var r = t & dy, a = Yr(i), l = a.length, c = Yr(e), u = c.length;
+  var r = t & dy, a = Qr(i), l = a.length, c = Qr(e), u = c.length;
   if (l != u && !r)
     return !1;
   for (var d = l; d--; ) {
@@ -1518,7 +1518,7 @@ function Ey(i, e) {
 }
 var Ay = 1, xy = 2;
 function Iy(i, e) {
-  return Qa(i) && Gf(e) ? jf(ui(i), e) : function(t) {
+  return Ya(i) && Gf(e) ? jf(ui(i), e) : function(t) {
     var n = Zi(t, i);
     return n === void 0 && n === e ? Ey(t, i) : ms(e, n, Ay | xy);
   };
@@ -1534,7 +1534,7 @@ function Py(i) {
   };
 }
 function Ry(i) {
-  return Qa(i) ? Sy(ui(i)) : Py(i);
+  return Ya(i) ? Sy(ui(i)) : Py(i);
 }
 function Kf(i) {
   return typeof i == "function" ? i : i == null ? Dt : typeof i == "object" ? Be(i) ? Iy(i[0], i[1]) : Cy(i) : Ry(i);
@@ -1654,9 +1654,9 @@ function Hy(i) {
   var e = i == null ? 0 : i.length;
   return e ? i[e - 1] : void 0;
 }
-var Qf = /[\\^$.*+?()[\]{}|]/g, Uy = RegExp(Qf.source);
-function Yf(i) {
-  return i = el(i), i && Uy.test(i) ? i.replace(Qf, "\\$&") : i;
+var Yf = /[\\^$.*+?()[\]{}|]/g, Uy = RegExp(Yf.source);
+function Qf(i) {
+  return i = el(i), i && Uy.test(i) ? i.replace(Yf, "\\$&") : i;
 }
 function $y(i, e) {
   var t = -1, n = li(i) ? Array(i.length) : [];
@@ -1717,18 +1717,18 @@ function Jy(i, e, t, n) {
 function Xy(i, e, t) {
   return i == null ? i : Jy(i, e, t);
 }
-var Qy = "Expected a function";
+var Yy = "Expected a function";
 function Xn(i, e, t) {
   var n = !0, s = !0;
   if (typeof i != "function")
-    throw new TypeError(Qy);
+    throw new TypeError(Yy);
   return J(t) && (n = "leading" in t ? !!t.leading : n, s = "trailing" in t ? !!t.trailing : s), Pt(i, e, {
     leading: n,
     maxWait: e,
     trailing: s
   });
 }
-function Yy(i, e) {
+function Qy(i, e) {
   return i == null ? !0 : Zy(i, e);
 }
 /**
@@ -1993,7 +1993,7 @@ function Ue(i) {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-function Ye(i, e, t = {}, n = []) {
+function Qe(i, e, t = {}, n = []) {
   const s = t && t.xmlns, o = s ? i.createElementNS(s, e) : i.createElement(e);
   for (const r in t)
     o.setAttribute(r, t[r]);
@@ -2626,7 +2626,7 @@ function mC(i, e) {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class Y {
+class Q {
   /**
    * Creates an instance of the `ResizeObserver` class.
    *
@@ -2637,7 +2637,7 @@ class Y {
    * object with information about the resize event.
    */
   constructor(e, t) {
-    Y._observerInstance || Y._createObserver(), this._element = e, this._callback = t, Y._addElementCallback(e, t), Y._observerInstance.observe(e);
+    Q._observerInstance || Q._createObserver(), this._element = e, this._callback = t, Q._addElementCallback(e, t), Q._observerInstance.observe(e);
   }
   /**
    * The element observed by this observer.
@@ -2649,37 +2649,37 @@ class Y {
    * Destroys the observer which disables the `callback` passed to the {@link #constructor}.
    */
   destroy() {
-    Y._deleteElementCallback(this._element, this._callback);
+    Q._deleteElementCallback(this._element, this._callback);
   }
   /**
    * Registers a new resize callback for the DOM element.
    */
   static _addElementCallback(e, t) {
-    Y._elementCallbacks || (Y._elementCallbacks = /* @__PURE__ */ new Map());
-    let n = Y._elementCallbacks.get(e);
-    n || (n = /* @__PURE__ */ new Set(), Y._elementCallbacks.set(e, n)), n.add(t);
+    Q._elementCallbacks || (Q._elementCallbacks = /* @__PURE__ */ new Map());
+    let n = Q._elementCallbacks.get(e);
+    n || (n = /* @__PURE__ */ new Set(), Q._elementCallbacks.set(e, n)), n.add(t);
   }
   /**
    * Removes a resize callback from the DOM element. If no callbacks are left
    * for the element, it removes the element from the native observer.
    */
   static _deleteElementCallback(e, t) {
-    const n = Y._getElementCallbacks(e);
-    n && (n.delete(t), n.size || (Y._elementCallbacks.delete(e), Y._observerInstance.unobserve(e))), Y._elementCallbacks && !Y._elementCallbacks.size && (Y._observerInstance = null, Y._elementCallbacks = null);
+    const n = Q._getElementCallbacks(e);
+    n && (n.delete(t), n.size || (Q._elementCallbacks.delete(e), Q._observerInstance.unobserve(e))), Q._elementCallbacks && !Q._elementCallbacks.size && (Q._observerInstance = null, Q._elementCallbacks = null);
   }
   /**
    * Returns are registered resize callbacks for the DOM element.
    */
   static _getElementCallbacks(e) {
-    return Y._elementCallbacks ? Y._elementCallbacks.get(e) : null;
+    return Q._elementCallbacks ? Q._elementCallbacks.get(e) : null;
   }
   /**
    * Creates the single native observer shared across all `ResizeObserver` instances.
    */
   static _createObserver() {
-    Y._observerInstance = new E.window.ResizeObserver((e) => {
+    Q._observerInstance = new E.window.ResizeObserver((e) => {
       for (const t of e) {
-        const n = Y._getElementCallbacks(t.target);
+        const n = Q._getElementCallbacks(t.target);
         if (n)
           for (const s of n)
             s(t);
@@ -2687,8 +2687,8 @@ class Y {
     });
   }
 }
-Y._observerInstance = null;
-Y._elementCallbacks = null;
+Q._observerInstance = null;
+Q._elementCallbacks = null;
 /**
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
@@ -2974,7 +2974,7 @@ const CC = {
   let t;
   return e in Wc ? t = Wc[e] : t = i.charAt(0).toUpperCase() + i.slice(1), [e, t];
 }));
-function Qn(i) {
+function Yn(i) {
   let e;
   if (typeof i == "string") {
     if (e = N[i.toLowerCase()], !e)
@@ -3008,8 +3008,8 @@ function ll(i, e) {
 }
 function AC(i) {
   if (i.endsWith("!"))
-    return Qn(i.slice(0, -1));
-  const e = Qn(i);
+    return Yn(i.slice(0, -1));
+  const e = Yn(i);
   return (M.isMac || M.isiOS) && e == N.ctrl ? N.cmd : e;
 }
 function xC(i, e) {
@@ -3618,7 +3618,7 @@ class ie {
    */
   listenTo(e) {
     this._listener.listenTo(e, "keydown", (t, n) => {
-      this._listener.fire("_keydown:" + Qn(n), n);
+      this._listener.fire("_keydown:" + Yn(n), n);
     });
   }
   /**
@@ -3649,7 +3649,7 @@ class ie {
    * @returns Whether the keystroke was handled.
    */
   press(e) {
-    return !!this._listener.fire("_keydown:" + Qn(e), e);
+    return !!this._listener.fire("_keydown:" + Yn(e), e);
   }
   /**
    * Stops listening to `keydown` events from the given emitter.
@@ -4204,15 +4204,15 @@ class gm extends G() {
         const Zt = s._availablePlugins.get(ee);
         if (!Zt)
           throw new g("plugincollection-plugin-for-replacing-not-exist", null, { pluginName: ee });
-        const Yl = x.indexOf(Zt);
-        if (Yl === -1) {
+        const Ql = x.indexOf(Zt);
+        if (Ql === -1) {
           if (s._contextPlugins.has(Zt))
             return;
           throw new g("plugincollection-plugin-for-replacing-not-loaded", null, { pluginName: ee });
         }
         if (Zt.requires && Zt.requires.length)
           throw new g("plugincollection-replaced-plugin-cannot-have-dependencies", null, { pluginName: ee });
-        x.splice(Yl, 1, S), s._availablePlugins.set(ee, S);
+        x.splice(Ql, 1, S), s._availablePlugins.set(ee, S);
       }
     }
   }
@@ -4939,18 +4939,18 @@ function XC(i, e) {
   return i instanceof RegExp ? !!e.match(i) : i === e;
 }
 function fl(i, e, t) {
-  const n = QC(i), s = Array.from(e), o = [];
+  const n = YC(i), s = Array.from(e), o = [];
   if (n.forEach(([r, a]) => {
     s.forEach((l) => {
-      YC(r, l) && ek(a, l, t) && o.push(l);
+      QC(r, l) && ek(a, l, t) && o.push(l);
     });
   }), !(!n.length || o.length < n.length))
     return o;
 }
-function QC(i) {
+function YC(i) {
   return Array.isArray(i) ? i.map((e) => Ne(e) ? ((e.key === void 0 || e.value === void 0) && D("matcher-pattern-missing-key-or-value", e), [e.key, e.value]) : [e, !0]) : Ne(i) ? Object.entries(i) : [[i, !0]];
 }
-function YC(i, e) {
+function QC(i, e) {
   return i === !0 || i === e || i instanceof RegExp && e.match(i);
 }
 function ek(i, e, t) {
@@ -5085,7 +5085,7 @@ class la {
    */
   remove(e) {
     const t = ca(e);
-    Yy(this._styles, t), delete this._styles[e], this._cleanEmptyObjectsOnPath(t);
+    Qy(this._styles, t), delete this._styles[e], this._cleanEmptyObjectsOnPath(t);
   }
   /**
    * Returns a normalized style object or a single value.
@@ -5634,7 +5634,7 @@ let rt = class bm extends _n {
   constructor(e, t, n, s) {
     if (super(e), this._unsafeAttributesToRender = [], this._customProperties = /* @__PURE__ */ new Map(), this.name = t, this._attrs = rk(n), this._children = [], s && this._insertChild(0, s), this._classes = /* @__PURE__ */ new Set(), this._attrs.has("class")) {
       const o = this._attrs.get("class");
-      Qc(this._classes, o), this._attrs.delete("class");
+      Yc(this._classes, o), this._attrs.delete("class");
     }
     this._styles = new la(this.document.stylesProcessor), this._attrs.has("style") && (this._styles.setTo(this._attrs.get("style")), this._attrs.delete("style"));
   }
@@ -5995,7 +5995,7 @@ let rt = class bm extends _n {
    */
   _setAttribute(e, t) {
     const n = String(t);
-    this._fireChange("attributes", this), e == "class" ? Qc(this._classes, n) : e == "style" ? this._styles.setTo(n) : this._attrs.set(e, n);
+    this._fireChange("attributes", this), e == "class" ? Yc(this._classes, n) : e == "style" ? this._styles.setTo(n) : this._attrs.set(e, n);
   }
   /**
    * Removes attribute from the element.
@@ -6098,7 +6098,7 @@ function rk(i) {
     n === null ? e.delete(t) : typeof n != "string" && e.set(t, String(n));
   return e;
 }
-function Qc(i, e) {
+function Yc(i, e) {
   const t = e.split(/\s+/);
   i.clear(), t.forEach((n) => i.add(n));
 }
@@ -6172,7 +6172,7 @@ Ko.prototype.is = function(i, e) {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-const Yc = Symbol("rootName");
+const Qc = Symbol("rootName");
 class wm extends Ko {
   /**
    * Creates root editable element.
@@ -6190,10 +6190,10 @@ class wm extends Ko {
    * @readonly
    */
   get rootName() {
-    return this.getCustomProperty(Yc);
+    return this.getCustomProperty(Qc);
   }
   set rootName(e) {
-    this._setCustomProperty(Yc, e);
+    this._setCustomProperty(Qc, e);
   }
   /**
    * Overrides old element name and sets new one.
@@ -10766,7 +10766,7 @@ class wt extends Le() {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class Yn {
+class Qn {
   /**
    * @param view The instance of the view controller.
    * @param domEvent The DOM event.
@@ -10828,7 +10828,7 @@ class Gt extends wt {
    * {@link module:engine/view/observer/domeventdata~DomEventData event data} object.
    */
   fire(e, t, n) {
-    this.isEnabled && this.document.fire(e, new Yn(this.view, t, n));
+    this.isEnabled && this.document.fire(e, new Qn(this.view, t, n));
   }
 }
 /**
@@ -10850,7 +10850,7 @@ class Ok extends Gt {
       shiftKey: e.shiftKey,
       metaKey: e.metaKey,
       get keystroke() {
-        return Qn(this);
+        return Yn(this);
       }
     };
     this.fire(e.type, e, t);
@@ -15168,7 +15168,7 @@ class De extends G(jt) {
         o.type == "elementEnd" && Jk(r, e, t) && (yield r);
       }
       const s = hu(t.end, e);
-      Qk(s, t) && (yield s);
+      Yk(s, t) && (yield s);
     }
   }
   /**
@@ -15238,16 +15238,16 @@ function hu(i, e) {
   return s.forEach((a) => e.add(a)), r;
 }
 function bl(i, e) {
-  const t = Yk(i);
+  const t = Qk(i);
   return t ? !e.containsRange(_._createOn(t), !0) : !0;
 }
 function Xk(i, e) {
   return i ? e.isCollapsed || i.isEmpty ? !0 : e.start.isTouching(y._createAt(i, i.maxOffset)) ? !1 : bl(i, e) : !1;
 }
-function Qk(i, e) {
+function Yk(i, e) {
   return i ? e.isCollapsed || i.isEmpty ? !0 : e.end.isTouching(y._createAt(i, 0)) ? !1 : bl(i, e) : !1;
 }
-function Yk(i) {
+function Qk(i) {
   const e = i.root.document.model.schema;
   let t = i.parent;
   for (; t; ) {
@@ -15327,7 +15327,7 @@ function nT(i, e) {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-const Qi = "selection:";
+const Yi = "selection:";
 class at extends G(jt) {
   /**
    * Creates an empty live selection for given {@link module:engine/model/document~Document}.
@@ -15692,7 +15692,7 @@ class at extends G(jt) {
    * @returns Converted attribute key, applicable for selection store.
    */
   static _getStoreAttributeKey(e) {
-    return Qi + e;
+    return Yi + e;
   }
   /**
    * Checks whether the given attribute key is an attribute stored on an element.
@@ -15700,7 +15700,7 @@ class at extends G(jt) {
    * @internal
    */
   static _isStoreAttributeKey(e) {
-    return e.startsWith(Qi);
+    return e.startsWith(Yi);
   }
 }
 at.prototype.is = function(i) {
@@ -15924,7 +15924,7 @@ class iT extends De {
     const e = this.getFirstPosition().parent;
     if (this.isCollapsed && e.isEmpty)
       for (const t of e.getAttributeKeys())
-        t.startsWith(Qi) && (yield [t.substr(Qi.length), e.getAttribute(t)]);
+        t.startsWith(Yi) && (yield [t.substr(Yi.length), e.getAttribute(t)]);
   }
   /**
    * Checks model text nodes that are closest to the selection's first position and returns attributes of first
@@ -15994,7 +15994,7 @@ function sT(i, e) {
       continue;
     const s = n.position.parent;
     n.length === s.maxOffset && i.enqueueChange(e, (r) => {
-      const a = Array.from(s.getAttributeKeys()).filter((l) => l.startsWith(Qi));
+      const a = Array.from(s.getAttributeKeys()).filter((l) => l.startsWith(Yi));
       for (const l of a)
         r.removeAttribute(l, s);
     });
@@ -16993,13 +16993,13 @@ function CT(i) {
   };
 }
 function kT(i) {
-  const e = Dm(i.model), t = Yi(i.view, "container");
+  const e = Dm(i.model), t = Qi(i.view, "container");
   return e.attributes.length && (e.children = !0), (n) => {
     n.on(`insert:${e.name}`, dT(t, Um(e)), { priority: i.converterPriority || "normal" }), (e.children || e.attributes.length) && n.on("reduceChanges", Hm(e), { priority: "low" });
   };
 }
 function TT(i) {
-  const e = Dm(i.model), t = Yi(i.view, "container");
+  const e = Dm(i.model), t = Qi(i.view, "container");
   return e.children = !0, (n) => {
     if (n._conversionApi.schema.checkChild(e.name, "$text"))
       throw new g("conversion-element-to-structure-disallowed-text", n, { elementName: e.name });
@@ -17013,9 +17013,9 @@ function ET(i) {
   let t = `attribute:${e.key}`;
   if (e.name && (t += ":" + e.name), e.values)
     for (const s of e.values)
-      i.view[s] = Yi(i.view[s], "attribute");
+      i.view[s] = Qi(i.view[s], "attribute");
   else
-    i.view = Yi(i.view, "attribute");
+    i.view = Qi(i.view, "attribute");
   const n = zm(i);
   return (s) => {
     s.on(t, uT(n), { priority: i.converterPriority || "normal" });
@@ -17037,7 +17037,7 @@ function AT(i) {
   };
 }
 function xT(i) {
-  const e = Yi(i.view, "ui");
+  const e = Qi(i.view, "ui");
   return (t) => {
     t.on(`addMarker:${i.model}`, fT(e), { priority: i.converterPriority || "normal" }), t.on(`removeMarker:${i.model}`, mT(), { priority: i.converterPriority || "normal" });
   };
@@ -17065,7 +17065,7 @@ function Dm(i) {
     children: !!i.children
   };
 }
-function Yi(i, e) {
+function Qi(i, e) {
   return typeof i == "function" ? i : (t, n) => PT(i, n, e);
 }
 function PT(i, e, t) {
@@ -17819,9 +17819,9 @@ function XT(i, e) {
   return o && i.setSelection(t2(s), { backward: t.isBackward }), !1;
 }
 function Jm(i, e) {
-  return i.isCollapsed ? QT(i, e) : YT(i, e);
+  return i.isCollapsed ? YT(i, e) : QT(i, e);
 }
-function QT(i, e) {
+function YT(i, e) {
   const t = i.start, n = e.getNearestSelectionRange(t);
   if (!n) {
     const o = t.getAncestors().reverse().find((r) => e.isObject(r));
@@ -17832,7 +17832,7 @@ function QT(i, e) {
   const s = n.start;
   return t.isEqual(s) ? null : new _(s);
 }
-function YT(i, e) {
+function QT(i, e) {
   const { start: t, end: n } = i, s = e.checkChild(t, "$text"), o = e.checkChild(n, "$text"), r = e.getLimitElement(t), a = e.getLimitElement(n);
   if (r === a) {
     if (s && o)
@@ -19173,7 +19173,7 @@ function r2(i, e) {
     allowChildren: [],
     inheritTypesFrom: []
   };
-  return g2(i, t), Qt(i, t, "allowIn"), Qt(i, t, "allowContentOf"), Qt(i, t, "allowWhere"), Qt(i, t, "allowAttributes"), Qt(i, t, "allowAttributesOf"), Qt(i, t, "allowChildren"), Qt(i, t, "inheritTypesFrom"), p2(i, t), t;
+  return g2(i, t), Yt(i, t, "allowIn"), Yt(i, t, "allowContentOf"), Yt(i, t, "allowWhere"), Yt(i, t, "allowAttributes"), Yt(i, t, "allowAttributesOf"), Yt(i, t, "allowChildren"), Yt(i, t, "inheritTypesFrom"), p2(i, t), t;
 }
 function a2(i, e) {
   const t = i[e];
@@ -19242,7 +19242,7 @@ function g2(i, e) {
       e[s] = !!t[s];
   }
 }
-function Qt(i, e, t) {
+function Yt(i, e, t) {
   for (const n of i) {
     const s = n[t];
     typeof s == "string" ? e[t].push(s) : Array.isArray(s) && e[t].push(...s);
@@ -20391,7 +20391,7 @@ class $e {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 function vl(i, e) {
-  const t = Qm(e), n = t.reduce((r, a) => r + a.offsetSize, 0), s = i.parent;
+  const t = Ym(e), n = t.reduce((r, a) => r + a.offsetSize, 0), s = i.parent;
   ns(i);
   const o = i.index;
   return s._insertChild(o, t), ts(s, o + t.length), ts(s, o), new _(i, i.getShiftedBy(n));
@@ -20418,7 +20418,7 @@ function P2(i, e, t) {
   }
   ts(i.end.parent, i.end.index);
 }
-function Qm(i) {
+function Ym(i) {
   const e = [];
   function t(n) {
     if (typeof n == "string")
@@ -20434,13 +20434,13 @@ function Qm(i) {
   t(i);
   for (let n = 1; n < e.length; n++) {
     const s = e[n], o = e[n - 1];
-    s instanceof j && o instanceof j && Ym(s, o) && (e.splice(n - 1, 2, new j(o.data + s.data, o.getAttributes())), n--);
+    s instanceof j && o instanceof j && Qm(s, o) && (e.splice(n - 1, 2, new j(o.data + s.data, o.getAttributes())), n--);
   }
   return e;
 }
 function ts(i, e) {
   const t = i.getChild(e - 1), n = i.getChild(e);
-  if (t && n && t.is("$text") && n.is("$text") && Ym(t, n)) {
+  if (t && n && t.is("$text") && n.is("$text") && Qm(t, n)) {
     const s = new j(t.data + n.data, t.getAttributes());
     i._removeChildren(e - 1, 2), i._insertChild(e - 1, s);
   }
@@ -20454,7 +20454,7 @@ function ns(i) {
     t._insertChild(s, [o, r]);
   }
 }
-function Ym(i, e) {
+function Qm(i, e) {
   const t = i.getAttributes(), n = e.getAttributes();
   for (const s of t) {
     if (s[1] !== e.getAttribute(s[0]))
@@ -20587,7 +20587,7 @@ class _e extends $e {
    * can be applied or `null` if the operation operates on detached (non-document) tree.
    */
   constructor(e, t, n) {
-    super(n), this.position = e.clone(), this.position.stickiness = "toNone", this.nodes = new Fi(Qm(t)), this.shouldReceiveAttributes = !1;
+    super(n), this.position = e.clone(), this.position.stickiness = "toNone", this.nodes = new Fi(Ym(t)), this.shouldReceiveAttributes = !1;
   }
   /**
    * @inheritDoc
@@ -24367,7 +24367,7 @@ function Z2(i, e, t = {}) {
       c && Object.assign(r, s.getAttributesWithProperty(c, "copyOnReplace", !0));
     }
     const [a, l] = J2(n);
-    a.isTouching(l) || o.remove(o.createRange(a, l)), t.leaveUnmerged || (Q2(o, a, l), s.removeDisallowedAttributes(a.parent.getChildren(), o)), sg(o, e, a), !t.doNotAutoparagraph && t5(s, a) && ig(o, a, e, r), a.detach(), l.detach();
+    a.isTouching(l) || o.remove(o.createRange(a, l)), t.leaveUnmerged || (Y2(o, a, l), s.removeDisallowedAttributes(a.parent.getChildren(), o)), sg(o, e, a), !t.doNotAutoparagraph && t5(s, a) && ig(o, a, e, r), a.detach(), l.detach();
   });
 }
 function J2(i) {
@@ -24396,7 +24396,7 @@ function X2(i) {
       return s;
   }
 }
-function Q2(i, e, t) {
+function Y2(i, e, t) {
   const n = i.model;
   if (!yl(i.model.schema, e, t))
     return;
@@ -24420,10 +24420,10 @@ function ng(i, e, t, n) {
       const r = e.parent;
       e = i.createPositionBefore(r), i.remove(r);
     }
-    t = i.createPositionBefore(o), Y2(i, t), yl(i.model.schema, e, t) && ng(i, e, t, n);
+    t = i.createPositionBefore(o), Q2(i, t), yl(i.model.schema, e, t) && ng(i, e, t, n);
   }
 }
-function Y2(i, e) {
+function Q2(i, e) {
   const t = e.nodeBefore, n = e.nodeAfter;
   t.name != n.name && i.rename(t, n.name), i.clearAttributes(t), i.setAttributes(Object.fromEntries(n.getAttributes()), t), i.merge(e);
 }
@@ -25607,7 +25607,7 @@ class _5 extends Gt {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class Qo extends Gt {
+class Yo extends Gt {
   constructor() {
     super(...arguments), this.domEventType = ["mousedown", "mouseup", "mouseover", "mouseout"];
   }
@@ -26133,7 +26133,7 @@ function I5(i) {
   return x5.includes(i);
 }
 const S5 = /^([+-]?[0-9]*([.][0-9]+)?(px|cm|mm|in|pc|pt|ch|em|ex|rem|vh|vw|vmin|vmax)|0)$/;
-function Yo(i) {
+function Qo(i) {
   return S5.test(i);
 }
 const P5 = /^[+-]?[0-9]*([.][0-9]+)?%$/;
@@ -26307,7 +26307,7 @@ function Ri(i, e) {
 function cg(i) {
   const e = {}, t = Cl(i);
   for (const n of t)
-    Yo(n) || /thin|medium|thick/.test(n) ? e.width = n : I5(n) ? e.style = n : e.color = n;
+    Qo(n) || /thin|medium|thick/.test(n) ? e.width = n : I5(n) ? e.style = n : e.color = n;
   return e;
 }
 function q5() {
@@ -26971,11 +26971,11 @@ class X5 extends U() {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-function Q5(i) {
+function Y5(i) {
   if (!dn(i.updateSourceElement))
     throw new g("attachtoform-missing-elementapi-interface", i);
   const e = i.sourceElement;
-  if (Y5(e) && e.form) {
+  if (Q5(e) && e.form) {
     let t;
     const n = e.form, s = () => i.updateSourceElement();
     dn(n.submit) && (t = n.submit, n.submit = () => {
@@ -26985,7 +26985,7 @@ function Q5(i) {
     });
   }
 }
-function Y5(i) {
+function Q5(i) {
   return !!i && i.tagName.toLowerCase() === "textarea";
 }
 /**
@@ -27064,7 +27064,7 @@ class Vu extends jo {
     return this._actions[Symbol.iterator]();
   }
 }
-const eE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.591 10.177 4.243 4.242a1 1 0 0 1-1.415 1.415l-4.242-4.243-4.243 4.243a1 1 0 0 1-1.414-1.415l4.243-4.242L4.52 5.934A1 1 0 0 1 5.934 4.52l4.243 4.243 4.242-4.243a1 1 0 1 1 1.415 1.414l-4.243 4.243z"/></svg>', tE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 16h9a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2z"/><path d="M17 1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h14zm0 1.5H3a.5.5 0 0 0-.492.41L2.5 3v9a.5.5 0 0 0 .41.492L3 12.5h14a.5.5 0 0 0 .492-.41L17.5 12V3a.5.5 0 0 0-.41-.492L17 2.5z" fill-opacity=".6"/></svg>', nE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.972 16.615a.997.997 0 0 1-.744-.292l-4.596-4.596a1 1 0 1 1 1.414-1.414l3.926 3.926 9.937-9.937a1 1 0 0 1 1.414 1.415L7.717 16.323a.997.997 0 0 1-.745.292z"/></svg>', iE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.333 2 .19 2.263a5.899 5.899 0 0 1 1.458.604L14.714 3.4 16.6 5.286l-1.467 1.733c.263.452.468.942.605 1.46L18 8.666v2.666l-2.263.19a5.899 5.899 0 0 1-.604 1.458l1.467 1.733-1.886 1.886-1.733-1.467a5.899 5.899 0 0 1-1.46.605L11.334 18H8.667l-.19-2.263a5.899 5.899 0 0 1-1.458-.604L5.286 16.6 3.4 14.714l1.467-1.733a5.899 5.899 0 0 1-.604-1.458L2 11.333V8.667l2.262-.189a5.899 5.899 0 0 1 .605-1.459L3.4 5.286 5.286 3.4l1.733 1.467a5.899 5.899 0 0 1 1.46-.605L8.666 2h2.666zM10 6.267a3.733 3.733 0 1 0 0 7.466 3.733 3.733 0 0 0 0-7.466z"/></svg>', sE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.209 18.717A8.5 8.5 0 1 1 18.686 9.6h-.008l.002.12a3 3 0 0 1-2.866 2.997h-.268l-.046-.002v.002h-4.791a2 2 0 1 0 0 4 1 1 0 1 1-.128 1.992 8.665 8.665 0 0 1-.372.008Zm-3.918-7.01a1.25 1.25 0 1 0-2.415-.648 1.25 1.25 0 0 0 2.415.647ZM5.723 8.18a1.25 1.25 0 1 0 .647-2.414 1.25 1.25 0 0 0-.647 2.414ZM9.76 6.155a1.25 1.25 0 1 0 .647-2.415 1.25 1.25 0 0 0-.647 2.415Zm4.028 1.759a1.25 1.25 0 1 0 .647-2.415 1.25 1.25 0 0 0-.647 2.415Z"/></svg>', oE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m8.636 9.531-2.758 3.94a.5.5 0 0 0 .122.696l3.224 2.284h1.314l2.636-3.736L8.636 9.53zm.288 8.451L5.14 15.396a2 2 0 0 1-.491-2.786l6.673-9.53a2 2 0 0 1 2.785-.49l3.742 2.62a2 2 0 0 1 .491 2.785l-7.269 10.053-2.147-.066z"/><path d="M4 18h5.523v-1H4zm-2 0h1v-1H2z"/></svg>', rE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 1a9 9 0 1 1-8.027 13.075l1.128-1.129A7.502 7.502 0 0 0 18.5 10a7.5 7.5 0 1 0-14.962.759l-.745-.746-.76.76A9 9 0 0 1 11 1z"/><path d="M.475 8.17a.75.75 0 0 1 .978.047l.075.082 1.284 1.643 1.681-1.284a.75.75 0 0 1 .978.057l.073.083a.75.75 0 0 1-.057.978l-.083.073-2.27 1.737a.75.75 0 0 1-.973-.052l-.074-.082-1.741-2.23a.75.75 0 0 1 .13-1.052z"/><path d="M11.5 5v4.999l3.196 3.196-1.06 1.06L10.1 10.72l-.1-.113V5z"/></svg>', aE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.085 6.22 2.943 4.078a.75.75 0 1 1 1.06-1.06l2.592 2.59A11.094 11.094 0 0 1 10 5.068c4.738 0 8.578 3.101 8.578 5.083 0 1.197-1.401 2.803-3.555 3.887l1.714 1.713a.75.75 0 0 1-.09 1.138.488.488 0 0 1-.15.084.75.75 0 0 1-.821-.16L6.17 7.304c-.258.11-.51.233-.757.365l6.239 6.24-.006.005.78.78c-.388.094-.78.166-1.174.215l-1.11-1.11h.011L4.55 8.197a7.2 7.2 0 0 0-.665.514l-.112.098 4.897 4.897-.005.006 1.276 1.276a10.164 10.164 0 0 1-1.477-.117l-.479-.479-.009.009-4.863-4.863-.022.031a2.563 2.563 0 0 0-.124.2c-.043.077-.08.158-.108.241a.534.534 0 0 0-.028.133.29.29 0 0 0 .008.072.927.927 0 0 0 .082.226c.067.133.145.26.234.379l3.242 3.365.025.01.59.623c-3.265-.918-5.59-3.155-5.59-4.668 0-1.194 1.448-2.838 3.663-3.93zm7.07.531a4.632 4.632 0 0 1 1.108 5.992l.345.344.046-.018a9.313 9.313 0 0 0 2-1.112c.256-.187.5-.392.727-.613.137-.134.27-.277.392-.431.072-.091.141-.185.203-.286.057-.093.107-.19.148-.292a.72.72 0 0 0 .036-.12.29.29 0 0 0 .008-.072.492.492 0 0 0-.028-.133.999.999 0 0 0-.036-.096 2.165 2.165 0 0 0-.071-.145 2.917 2.917 0 0 0-.125-.2 3.592 3.592 0 0 0-.263-.335 5.444 5.444 0 0 0-.53-.523 7.955 7.955 0 0 0-1.054-.768 9.766 9.766 0 0 0-1.879-.891c-.337-.118-.68-.219-1.027-.301zm-2.85.21-.069.002a.508.508 0 0 0-.254.097.496.496 0 0 0-.104.679.498.498 0 0 0 .326.199l.045.005c.091.003.181.003.272.012a2.45 2.45 0 0 1 2.017 1.513c.024.061.043.125.069.185a.494.494 0 0 0 .45.287h.008a.496.496 0 0 0 .35-.158.482.482 0 0 0 .13-.335.638.638 0 0 0-.048-.219 3.379 3.379 0 0 0-.36-.723 3.438 3.438 0 0 0-2.791-1.543l-.028-.001h-.013z"/></svg>', lE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.035 1C2.446 1 2 1.54 2 2.098V10.5h1.5v-8h13v8H18V2.098C18 1.539 17.48 1 16.9 1H3.035Zm10.453 2.61a1.885 1.885 0 0 0-1.442.736 1.89 1.89 0 0 0 1.011 2.976 1.903 1.903 0 0 0 2.253-1.114 1.887 1.887 0 0 0-1.822-2.598ZM7.463 8.163a.611.611 0 0 0-.432.154L5.071 10.5h5.119L7.88 8.348a.628.628 0 0 0-.417-.185Zm6.236 1.059a.62.62 0 0 0-.42.164L12.07 10.5h2.969l-.92-1.113a.618.618 0 0 0-.42-.165ZM.91 11.5a.91.91 0 0 0-.91.912v6.877c0 .505.405.91.91.91h18.178a.91.91 0 0 0 .912-.91v-6.877a.908.908 0 0 0-.912-.912H.91ZM3.668 13h1.947l2.135 5.7H5.898l-.28-.946H3.601l-.278.945H1.516L3.668 13Zm4.947 0h1.801v4.3h2.7v1.4h-4.5V13h-.001Zm4.5 0h5.4v1.4h-1.798v4.3h-1.701v-4.3h-1.9V13h-.001Zm-8.517 1.457-.614 2.059h1.262l-.648-2.059Z"/></svg>', cE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M12.68 13.74h-.001l4.209 4.208a1 1 0 1 0 1.414-1.414l-4.267-4.268a6 6 0 1 0-1.355 1.474ZM13 9a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>', uE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11.463 5.187a.888.888 0 1 1 1.254 1.255L9.16 10l3.557 3.557a.888.888 0 1 1-1.254 1.255L7.26 10.61a.888.888 0 0 1 .16-1.382l4.043-4.042z"/></svg>', dE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.537 14.813a.888.888 0 1 1-1.254-1.255L10.84 10 7.283 6.442a.888.888 0 1 1 1.254-1.255L12.74 9.39a.888.888 0 0 1-.16 1.382l-4.043 4.042z"/></svg>', hE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.66 9.118a.693.693 0 0 1 .956.032l3.65 3.411 2.422-2.238a.695.695 0 0 1 .945 0L17.5 13.6V2.5h-15v11.1l4.16-4.482ZM17.8 1c.652 0 1.2.47 1.2 1.1v14.362c0 .64-.532 1.038-1.184 1.038H2.184C1.532 17.5 1 17.103 1 16.462V2.1C1 1.47 1.537 1 2.2 1h15.6Zm-5.655 6a2.128 2.128 0 0 1 .157-2.364A2.133 2.133 0 1 1 12.145 7Z"/></svg>', fE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1C.538 1 0 1.47 0 2.1v14.363c0 .64.534 1.037 1.186 1.037h9.494a2.97 2.97 0 0 1-.414-.287 2.998 2.998 0 0 1-1.055-2.03 3.003 3.003 0 0 1 .693-2.185l.383-.455-.02.018-3.65-3.41a.695.695 0 0 0-.957-.034L1.5 13.6V2.5h15v5.535a2.97 2.97 0 0 1 1.412.932l.088.105V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.713 2.803a2.146 2.146 0 0 0-2.049 1.992 2.14 2.14 0 0 0 1.28 2.096 2.13 2.13 0 0 0 2.644-3.11 2.134 2.134 0 0 0-1.875-.978Z"/><path d="M15.522 19.1a.79.79 0 0 0 .79-.79v-5.373l2.059 2.455a.79.79 0 1 0 1.211-1.015l-3.352-3.995a.79.79 0 0 0-.995-.179.784.784 0 0 0-.299.221l-3.35 3.99a.79.79 0 1 0 1.21 1.017l1.936-2.306v5.185c0 .436.353.79.79.79Z"/><path d="M15.522 19.1a.79.79 0 0 0 .79-.79v-5.373l2.059 2.455a.79.79 0 1 0 1.211-1.015l-3.352-3.995a.79.79 0 0 0-.995-.179.784.784 0 0 0-.299.221l-3.35 3.99a.79.79 0 1 0 1.21 1.017l1.936-2.306v5.185c0 .436.353.79.79.79Z"/></svg>', mE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1c-.662 0-1.2.47-1.2 1.1v14.248c0 .64.533 1.152 1.185 1.152h6.623v-7.236L6.617 9.15a.694.694 0 0 0-.957-.033L1.602 13.55V2.553l14.798.003V9.7H18V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.723 2.805a2.094 2.094 0 0 0-1.621.832 2.127 2.127 0 0 0 1.136 3.357 2.13 2.13 0 0 0 2.611-1.506 2.133 2.133 0 0 0-.76-2.244 2.13 2.13 0 0 0-1.366-.44Z"/><path clip-rule="evenodd" d="M19.898 12.369v6.187a.844.844 0 0 1-.844.844h-8.719a.844.844 0 0 1-.843-.844v-7.312a.844.844 0 0 1 .843-.844h2.531a.843.843 0 0 1 .597.248l.838.852h4.75c.223 0 .441.114.6.272a.844.844 0 0 1 .247.597Zm-1.52.654-4.377.02-1.1-1.143H11v6h7.4l-.023-4.877Z"/></svg>', gE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1C.538 1 0 1.47 0 2.1v14.363c0 .64.534 1.037 1.186 1.037h7.029a5.401 5.401 0 0 1 .615-4.338l.762-1.232-2.975-2.78a.696.696 0 0 0-.957-.033L1.5 13.6V2.5h15v6.023c.449.131.887.32 1.307.573l.058.033c.046.028.09.057.135.086V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.713 2.803a2.15 2.15 0 0 0-1.611.834 2.118 2.118 0 0 0-.438 1.158 2.14 2.14 0 0 0 1.277 2.096 2.132 2.132 0 0 0 2.645-3.11 2.13 2.13 0 0 0-1.873-.978Z"/><path d="M16.63 10.294a3.003 3.003 0 0 0-4.142.887l-.117.177a.647.647 0 0 0-.096.492.664.664 0 0 0 .278.418.7.7 0 0 0 .944-.234 1.741 1.741 0 0 1 2.478-.463 1.869 1.869 0 0 1 .476 2.55.637.637 0 0 0-.071.5.646.646 0 0 0 .309.396.627.627 0 0 0 .869-.19l.027-.041a3.226 3.226 0 0 0-.956-4.492Zm-6.061 3.78-.044.066a3.228 3.228 0 0 0 .82 4.403 3.005 3.005 0 0 0 4.275-.798l.13-.197a.626.626 0 0 0 .092-.475.638.638 0 0 0-.268-.402.713.713 0 0 0-.99.26l-.018.029a1.741 1.741 0 0 1-2.477.461 1.87 1.87 0 0 1-.475-2.55l.029-.047a.647.647 0 0 0 .086-.485.66.66 0 0 0-.275-.408l-.04-.027a.609.609 0 0 0-.845.17Z"/><path d="M15.312 13.925c.24-.36.154-.838-.19-1.067-.346-.23-.82-.124-1.059.236l-1.268 1.907c-.239.36-.153.838.192 1.067.345.23.818.123 1.057-.236l1.268-1.907Z"/></svg>', pE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m9.239 13.938-2.88-1.663a.75.75 0 0 1 .75-1.3L9 12.067V4.75a.75.75 0 1 1 1.5 0v7.318l1.89-1.093a.75.75 0 0 1 .75 1.3l-2.879 1.663a.752.752 0 0 1-.511.187.752.752 0 0 1-.511-.187zM4.25 17a.75.75 0 1 1 0-1.5h10.5a.75.75 0 0 1 0 1.5H4.25z"/></svg>', bE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.75 11.875a.752.752 0 0 1 .508.184l2.883 1.666a.75.75 0 0 1-.659 1.344l-.091-.044-1.892-1.093.001 4.318a.75.75 0 1 1-1.5 0v-4.317l-1.89 1.092a.75.75 0 0 1-.75-1.3l2.879-1.663a.752.752 0 0 1 .51-.187zM15.25 9a.75.75 0 1 1 0 1.5H4.75a.75.75 0 1 1 0-1.5h10.5zM9.75.375a.75.75 0 0 1 .75.75v4.318l1.89-1.093.092-.045a.75.75 0 0 1 .659 1.344l-2.883 1.667a.752.752 0 0 1-.508.184.752.752 0 0 1-.511-.187L6.359 5.65a.75.75 0 0 1 .75-1.299L9 5.442V1.125a.75.75 0 0 1 .75-.75z"/></svg>', wE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m10.261 7.062 2.88 1.663a.75.75 0 0 1-.75 1.3L10.5 8.933v7.317a.75.75 0 1 1-1.5 0V8.932l-1.89 1.093a.75.75 0 0 1-.75-1.3l2.879-1.663a.752.752 0 0 1 .511-.187.752.752 0 0 1 .511.187zM15.25 4a.75.75 0 1 1 0 1.5H4.75a.75.75 0 0 1 0-1.5h10.5z"/></svg>', _E = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 4c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75z"/></svg>', vE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm2.286 4c0 .414.336.75.75.75h9.928a.75.75 0 1 0 0-1.5H5.036a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h9.928a.75.75 0 1 0 0-1.5H5.036a.75.75 0 0 0-.75.75z"/></svg>', yE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M18 3.75a.75.75 0 0 1-.75.75H2.75a.75.75 0 1 1 0-1.5h14.5a.75.75 0 0 1 .75.75zm0 8a.75.75 0 0 1-.75.75H2.75a.75.75 0 1 1 0-1.5h14.5a.75.75 0 0 1 .75.75zm0 4a.75.75 0 0 1-.75.75H7.321a.75.75 0 1 1 0-1.5h9.929a.75.75 0 0 1 .75.75zm0-8a.75.75 0 0 1-.75.75H7.321a.75.75 0 1 1 0-1.5h9.929a.75.75 0 0 1 .75.75z"/></svg>', CE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 4c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75z"/></svg>', kE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', TE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M15.003 7v5.5a1 1 0 0 1-1 1H5.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H6.5V12h6.997V7.5z"/></svg>', EE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M18.003 7v5.5a1 1 0 0 1-1 1H8.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H9.5V12h6.997V7.5z"/></svg>', AE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M18 7v5.5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1zm-1.505.5H3.504V12h12.991V7.5z"/></svg>', xE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm11.5 9H18v1.5h-4.5zM2 15h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', IE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm11.5 9H18v1.5h-4.5zm0-3H18v1.5h-4.5zm0-3H18v1.5h-4.5zM2 15h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', SE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2zm0-9h5v1.5H2zm0 3h5v1.5H2zm0 3h5v1.5H2z"/><path d="M18.003 7v5.5a1 1 0 0 1-1 1H8.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H9.5V12h6.997V7.5z"/></svg>', PE = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.5 17v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zM1 15.5v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm0-2v1h-1v-1h1zm-19 0v1H0v-1h1zM14.5 2v1h-1V2h1zm2 0v1h-1V2h1zm2 0v1h-1V2h1zm-8 0v1h-1V2h1zm-2 0v1h-1V2h1zm-2 0v1h-1V2h1zm-2 0v1h-1V2h1zm8 0v1h-1V2h1zm-10 0v1h-1V2h1z"/><path d="M18.095 2H1.905C.853 2 0 2.895 0 4v12c0 1.105.853 2 1.905 2h16.19C19.147 18 20 17.105 20 16V4c0-1.105-.853-2-1.905-2zm0 1.5c.263 0 .476.224.476.5v12c0 .276-.213.5-.476.5H1.905a.489.489 0 0 1-.476-.5V4c0-.276.213-.5.476-.5h16.19z"/></svg>', RE = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:v="https://vecta.io/nano" viewBox="0 0 20 20"><path d="M.95 1.43a.95.95 0 0 0-.95.95v3.1a.95.95 0 0 0 .95.95h.75v6.3H.95a.95.95 0 0 0-.95.95v3.1a.95.95 0 0 0 .95.95h3.1a.95.95 0 0 0 .95-.95v-.65h1.932l1.539-1.5H5v-.95a.95.95 0 0 0-.95-.95H3.2v-6.3h.85A.95.95 0 0 0 5 5.48v-.55h10v.55a.95.95 0 0 0 .95.95h3.1a.95.95 0 0 0 .95-.95v-3.1a.95.95 0 0 0-.95-.95h-3.1a.95.95 0 0 0-.95.95v1.05H5V2.38a.95.95 0 0 0-.95-.95H.95zm.55 3.5v-2h2v2h-2zm0 9.3v2h2v-2h-2zm15-11.3v2h2v-2h-2z"/><path d="M8.139 20.004v-2.388l7.045-7.048 2.391 2.391-7.046 7.046h-2.39zm11.421-9.101a.64.64 0 0 1-.138.206l-1.165 1.168-2.391-2.391 1.167-1.163a.63.63 0 0 1 .206-.138.635.635 0 0 1 .243-.049.63.63 0 0 1 .449.187l1.491 1.488c.059.059.108.129.138.206s.049.16.049.243a.6.6 0 0 1-.049.243z"/></svg>', VE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M13 5.5H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2ZM13 7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-8A.5.5 0 0 1 2 7h11Z"/></svg>', ME = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M7 9.5H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2ZM7 11a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-4A.5.5 0 0 1 2 11h5Z"/></svg>', BE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M10 7.5H2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2ZM10 9a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-6A.5.5 0 0 1 2 9h8Z"/></svg>', LE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m7.3 17.37-.061.088a1.518 1.518 0 0 1-.934.535l-4.178.663-.806-4.153a1.495 1.495 0 0 1 .187-1.058l.056-.086L8.77 2.639c.958-1.351 2.803-1.076 4.296-.03 1.497 1.047 2.387 2.693 1.433 4.055L7.3 17.37zM9.14 4.728l-5.545 8.346 3.277 2.294 5.544-8.346L9.14 4.728zM6.07 16.512l-3.276-2.295.53 2.73 2.746-.435zM9.994 3.506 13.271 5.8c.316-.452-.16-1.333-1.065-1.966-.905-.634-1.895-.78-2.212-.328zM8 18.5 9.375 17H19v1.5H8z"/></svg>', OE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.999 2H15a1 1 0 0 1 0 2h-1.004v13a1 1 0 1 1-2 0V4H8.999v13a1 1 0 1 1-2 0v-7A4 4 0 0 1 3 6a4 4 0 0 1 3.999-4z"/></svg>', FE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.423a6.5 6.5 0 0 1 6.056-6.408l.038.67C6.448 5.423 5.354 7.663 5.22 10H9c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574zm8 0a6.5 6.5 0 0 1 6.056-6.408l.038.67c-2.646.739-3.74 2.979-3.873 5.315H17c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574z"/></svg>', NE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="9.5" cy="4.5" r="1.5"/><circle cx="9.5" cy="10.5" r="1.5"/><circle cx="9.5" cy="16.5" r="1.5"/></svg>', DE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3.25a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 3.25a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M5 10a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 10a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M5 16.75a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 16.75a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/></svg>', zE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.187 17H5.773c-.637 0-1.092-.138-1.364-.415-.273-.277-.409-.718-.409-1.323V4.738c0-.617.14-1.062.419-1.332.279-.27.73-.406 1.354-.406h4.68c.69 0 1.288.041 1.793.124.506.083.96.242 1.36.478.341.197.644.447.906.75a3.262 3.262 0 0 1 .808 2.162c0 1.401-.722 2.426-2.167 3.075C15.05 10.175 16 11.315 16 13.01a3.756 3.756 0 0 1-2.296 3.504 6.1 6.1 0 0 1-1.517.377c-.571.073-1.238.11-2 .11zm-.217-6.217H7v4.087h3.069c1.977 0 2.965-.69 2.965-2.072 0-.707-.256-1.22-.768-1.537-.512-.319-1.277-.478-2.296-.478zM7 5.13v3.619h2.606c.729 0 1.292-.067 1.69-.2a1.6 1.6 0 0 0 .91-.765c.165-.267.247-.566.247-.897 0-.707-.26-1.176-.778-1.409-.519-.232-1.31-.348-2.375-.348H7z"/></svg>', HE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 5.5H7v5h3.5a2.5 2.5 0 1 0 0-5zM5 3h6.5v.025a5 5 0 0 1 0 9.95V13H7v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/></svg>', UE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 0 0-1 1v6H3a1 1 0 1 0 0 2h6v6a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V3a1 1 0 0 0-1-1Z"/></svg>', $E = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.816 11.5 7.038 4.785 4.261 11.5h5.555Zm.62 1.5H3.641l-1.666 4.028H.312l5.789-14h1.875l5.789 14h-1.663L10.436 13Z"/><path d="m12.09 17-.534-1.292.848-1.971.545 1.319L12.113 17h-.023Zm1.142-5.187.545 1.319L15.5 9.13l1.858 4.316h-3.45l.398.965h3.467L18.887 17H20l-3.873-9h-1.254l-1.641 3.813Z"/></svg>', WE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M19 4.5 14 0H3v12.673l.868-1.041c.185-.222.4-.402.632-.54V1.5h8v5h5v7.626a2.24 2.24 0 0 1 1.5.822V4.5ZM14 5V2l3.3 3H14Zm-3.692 12.5c.062.105.133.206.213.303L11.52 19H8v-.876a2.243 2.243 0 0 0 1.82-.624h.488Zm7.518-.657a.75.75 0 0 0-1.152-.96L15.5 17.29V12H14v5.29l-1.174-1.408a.75.75 0 0 0-1.152.96l2.346 2.816a.95.95 0 0 0 1.46 0l2.346-2.815Zm-15.056-.38a.75.75 0 0 1-.096-1.056l2.346-2.815a.95.95 0 0 1 1.46 0l2.346 2.815a.75.75 0 1 1-1.152.96L6.5 14.96V20H5v-5.04l-1.174 1.408a.75.75 0 0 1-1.056.096Z"/></svg>', qE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m14.958 9.367-2.189 1.837a.75.75 0 0 0 .965 1.149l3.788-3.18a.747.747 0 0 0 .21-.284.75.75 0 0 0-.17-.945L13.77 4.762a.75.75 0 1 0-.964 1.15l2.331 1.955H6.22A.75.75 0 0 0 6 7.9a4 4 0 1 0 1.477 7.718l-.344-1.489A2.5 2.5 0 1 1 6.039 9.4l-.008-.032h8.927z"/></svg>', GE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m5.042 9.367 2.189 1.837a.75.75 0 0 1-.965 1.149l-3.788-3.18a.747.747 0 0 1-.21-.284.75.75 0 0 1 .17-.945L6.23 4.762a.75.75 0 1 1 .964 1.15L4.863 7.866h8.917A.75.75 0 0 1 14 7.9a4 4 0 1 1-1.477 7.718l.344-1.489a2.5 2.5 0 1 0 1.094-4.73l.008-.032H5.042z"/></svg>', jE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 5.75c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zm-6 0C1 4.784 1.777 4 2.75 4c.966 0 1.75.777 1.75 1.75 0 .966-.777 1.75-1.75 1.75C1.784 7.5 1 6.723 1 5.75zm6 9c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zm-6 0c0-.966.777-1.75 1.75-1.75.966 0 1.75.777 1.75 1.75 0 .966-.777 1.75-1.75 1.75-.966 0-1.75-.777-1.75-1.75z"/></svg>', KE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 5.75c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM3.5 3v5H2V3.7H1v-1h2.5V3zM.343 17.857l2.59-3.257H2.92a.6.6 0 1 0-1.04 0H.302a2 2 0 1 1 3.995 0h-.001c-.048.405-.16.734-.333.988-.175.254-.59.692-1.244 1.312H4.3v1h-4l.043-.043zM7 14.75a.75.75 0 0 1 .75-.75h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75z"/></svg>', ZE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m2.315 14.705 2.224-2.24a.689.689 0 0 1 .963 0 .664.664 0 0 1 0 .949L2.865 16.07a.682.682 0 0 1-.112.089.647.647 0 0 1-.852-.051L.688 14.886a.635.635 0 0 1 0-.903.647.647 0 0 1 .91 0l.717.722zm5.185.045a.75.75 0 0 1 .75-.75h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75zM2.329 5.745l2.21-2.226a.689.689 0 0 1 .963 0 .664.664 0 0 1 0 .95L2.865 7.125a.685.685 0 0 1-.496.196.644.644 0 0 1-.468-.187L.688 5.912a.635.635 0 0 1 0-.903.647.647 0 0 1 .91 0l.73.736zM7.5 5.75A.75.75 0 0 1 8.25 5h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75z"/></svg>', JE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M12.87 12.61a.75.75 0 0 1-.089.976l-.085.07-3.154 2.254 3.412 2.414a.75.75 0 0 1 .237.95l-.057.095a.75.75 0 0 1-.95.237l-.096-.058-4.272-3.022-.003-1.223 4.01-2.867a.75.75 0 0 1 1.047.174zm2.795-.231.095.057 4.011 2.867-.003 1.223-4.272 3.022-.095.058a.75.75 0 0 1-.88-.151l-.07-.086-.058-.095a.75.75 0 0 1 .15-.88l.087-.07 3.412-2.414-3.154-2.253-.085-.071a.75.75 0 0 1 .862-1.207zM16 0a2 2 0 0 1 2 2v9.354l-.663-.492-.837-.001V2a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v15a.5.5 0 0 0 .5.5h3.118L7.156 19H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h14zM5.009 15l.003 1H3v-1h2.009zm2.188-2-1.471 1H5v-1h2.197zM10 11v.095L8.668 12H7v-1h3zm4-2v1H7V9h7zm0-2v1H7V7h7zm-4-2v1H5V5h5zM6 3v1H3V3h3z"/></svg>', XE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11.627 16.5zm5.873-.196zm0-7.001V8h-13v8.5h4.341c.191.54.457 1.044.785 1.5H2a1.5 1.5 0 0 1-1.5-1.5v-13A1.5 1.5 0 0 1 2 2h4.5a1.5 1.5 0 0 1 1.06.44L9.122 4H16a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 19 8v2.531a6.027 6.027 0 0 0-1.5-1.228zM16 6.5v-1H8.5l-2-2H2v13h1V8a1.5 1.5 0 0 1 1.5-1.5H16z"/><path d="M14.5 19.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zM15 14v-2h-1v2h-2v1h2v2h1v-2h2v-1h-2z"/></svg>', QE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M19 9v10h-2v-8h-2V9h4zM4 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V11H4v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H3a1 1 0 0 1 1 1v4.5z"/></svg>', YE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V11H3v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H2a1 1 0 0 1 1 1v4.5zm16.076 8.343V18.5h-6.252c.067-.626.27-1.22.61-1.78.338-.561 1.006-1.305 2.005-2.232.804-.749 1.297-1.257 1.479-1.523.245-.368.368-.732.368-1.092 0-.398-.107-.703-.32-.917-.214-.214-.51-.32-.886-.32-.372 0-.669.111-.889.336-.22.224-.347.596-.38 1.117l-1.778-.178c.106-.982.438-1.686.997-2.114.558-.427 1.257-.64 2.095-.64.918 0 1.64.247 2.164.742.525.495.787 1.11.787 1.847 0 .419-.075.818-.225 1.197-.15.378-.388.775-.714 1.19-.216.275-.605.67-1.168 1.187-.563.516-.92.859-1.07 1.028a3.11 3.11 0 0 0-.365.495h3.542z"/></svg>', eA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V11H3v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H2a1 1 0 0 1 1 1v4.5zm9.989 7.53 1.726-.209c.055.44.203.777.445 1.01.24.232.533.349.876.349.368 0 .678-.14.93-.42.251-.279.377-.655.377-1.13 0-.448-.12-.803-.362-1.066a1.153 1.153 0 0 0-.882-.393c-.228 0-.501.044-.819.133l.197-1.453c.482.012.85-.092 1.105-.315.253-.222.38-.517.38-.885 0-.313-.093-.563-.279-.75-.186-.185-.434-.278-.743-.278a1.07 1.07 0 0 0-.78.317c-.216.212-.347.52-.394.927l-1.644-.28c.114-.562.287-1.012.517-1.348.231-.337.553-.601.965-.794a3.24 3.24 0 0 1 1.387-.289c.876 0 1.579.28 2.108.838.436.457.653.973.653 1.549 0 .817-.446 1.468-1.339 1.955.533.114.96.37 1.28.768.319.398.478.878.478 1.441 0 .817-.298 1.513-.895 2.088-.596.576-1.339.864-2.228.864-.842 0-1.54-.243-2.094-.727-.555-.485-.876-1.118-.965-1.901z"/></svg>', tA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm13.55 10v-1.873h-3.81v-1.561l4.037-5.91h1.498v5.904h1.156v1.567h-1.156V18.5H17.05zm0-3.44v-3.18l-2.14 3.18h2.14z"/></svg>', nA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm9.578 7.607 1.777-.184c.05.402.201.72.45.955a1.223 1.223 0 0 0 1.81-.101c.258-.303.387-.759.387-1.368 0-.572-.128-1-.384-1.286-.256-.285-.59-.428-1-.428-.512 0-.971.226-1.377.679l-1.448-.21.915-4.843h4.716v1.67H15.56l-.28 1.58a2.697 2.697 0 0 1 1.219-.298 2.68 2.68 0 0 1 2.012.863c.55.576.825 1.323.825 2.241a3.36 3.36 0 0 1-.666 2.05c-.605.821-1.445 1.232-2.52 1.232-.86 0-1.56-.23-2.101-.692-.542-.461-.866-1.081-.971-1.86z"/></svg>', iA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm15.595 2.973-1.726.19c-.043-.355-.153-.617-.33-.787-.178-.169-.409-.253-.692-.253-.377 0-.695.169-.956.507-.26.339-.424 1.043-.492 2.114.445-.525.997-.787 1.657-.787.745 0 1.383.284 1.914.85.531.568.797 1.3.797 2.197 0 .952-.28 1.716-.838 2.291-.559.576-1.276.864-2.152.864-.94 0-1.712-.365-2.317-1.095-.605-.73-.908-1.927-.908-3.59 0-1.705.316-2.935.946-3.688.63-.753 1.45-1.13 2.457-1.13.706 0 1.291.198 1.755.594.463.395.758.97.885 1.723zm-4.043 3.891c0 .58.133 1.028.4 1.343.266.315.57.473.914.473.33 0 .605-.13.825-.388.22-.258.33-.68.33-1.27 0-.604-.118-1.047-.355-1.329a1.115 1.115 0 0 0-.89-.422c-.342 0-.632.134-.869.403s-.355.666-.355 1.19z"/></svg>', sA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 9h16v2H2z"/></svg>', oA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17 0a2 2 0 0 1 2 2v7a1 1 0 0 1 1 1v5a1 1 0 0 1-.883.993l-.118.006L19 17a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2l-.001-1.001-.116-.006A1 1 0 0 1 0 15v-5a1 1 0 0 1 .999-1L1 2a2 2 0 0 1 2-2h14zm.499 15.999h-15L2.5 17a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5l-.001-1.001zm-3.478-6.013-.014.014H14v.007l-1.525 1.525-1.46-1.46-.015.013V10h-1v5h1v-3.53l1.428 1.43.048.043.131-.129L14 11.421V15h1v-5h-.965l-.014-.014zM2 10H1v5h1v-2h2v2h1v-5H4v2H2v-2zm7 0H6v1h1v4h1v-4h1v-1zm8 0h-1v5h3v-1h-2v-4zm0-8.5H3a.5.5 0 0 0-.5.5l-.001 6.999h15L17.5 2a.5.5 0 0 0-.5-.5zM10 7v1H4V7h6zm3-2v1H4V5h9zm-3-2v1H4V3h6z"/></svg>', rA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm5 6c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM2.75 16.5h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 1 0 0 1.5zM1.632 6.95 5.02 9.358a.4.4 0 0 1-.013.661l-3.39 2.207A.4.4 0 0 1 1 11.892V7.275a.4.4 0 0 1 .632-.326z"/></svg>', aA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm5 6c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM2.75 16.5h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 1 0 0 1.5zm1.618-9.55L.98 9.358a.4.4 0 0 0 .013.661l3.39 2.207A.4.4 0 0 0 5 11.892V7.275a.4.4 0 0 0-.632-.326z"/></svg>', lA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 5.5v3h4v-3H3Zm0 4v3h4v-3H3Zm0 4v3h4v-3H3Zm5 3h4v-3H8v3Zm5 0h4v-3h-4v3Zm4-4v-3h-4v3h4Zm0-4v-3h-4v3h4Zm1.5 8A1.5 1.5 0 0 1 17 18H3a1.5 1.5 0 0 1-1.5-1.5V3c.222-.863 1.068-1.5 2-1.5h13c.932 0 1.778.637 2 1.5v13.5Zm-6.5-4v-3H8v3h4Zm0-4v-3H8v3h4Z"/></svg>';
+const eE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.591 10.177 4.243 4.242a1 1 0 0 1-1.415 1.415l-4.242-4.243-4.243 4.243a1 1 0 0 1-1.414-1.415l4.243-4.242L4.52 5.934A1 1 0 0 1 5.934 4.52l4.243 4.243 4.242-4.243a1 1 0 1 1 1.415 1.414l-4.243 4.243z"/></svg>', tE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 16h9a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2z"/><path d="M17 1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h14zm0 1.5H3a.5.5 0 0 0-.492.41L2.5 3v9a.5.5 0 0 0 .41.492L3 12.5h14a.5.5 0 0 0 .492-.41L17.5 12V3a.5.5 0 0 0-.41-.492L17 2.5z" fill-opacity=".6"/></svg>', nE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.972 16.615a.997.997 0 0 1-.744-.292l-4.596-4.596a1 1 0 1 1 1.414-1.414l3.926 3.926 9.937-9.937a1 1 0 0 1 1.414 1.415L7.717 16.323a.997.997 0 0 1-.745.292z"/></svg>', iE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.333 2 .19 2.263a5.899 5.899 0 0 1 1.458.604L14.714 3.4 16.6 5.286l-1.467 1.733c.263.452.468.942.605 1.46L18 8.666v2.666l-2.263.19a5.899 5.899 0 0 1-.604 1.458l1.467 1.733-1.886 1.886-1.733-1.467a5.899 5.899 0 0 1-1.46.605L11.334 18H8.667l-.19-2.263a5.899 5.899 0 0 1-1.458-.604L5.286 16.6 3.4 14.714l1.467-1.733a5.899 5.899 0 0 1-.604-1.458L2 11.333V8.667l2.262-.189a5.899 5.899 0 0 1 .605-1.459L3.4 5.286 5.286 3.4l1.733 1.467a5.899 5.899 0 0 1 1.46-.605L8.666 2h2.666zM10 6.267a3.733 3.733 0 1 0 0 7.466 3.733 3.733 0 0 0 0-7.466z"/></svg>', sE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.209 18.717A8.5 8.5 0 1 1 18.686 9.6h-.008l.002.12a3 3 0 0 1-2.866 2.997h-.268l-.046-.002v.002h-4.791a2 2 0 1 0 0 4 1 1 0 1 1-.128 1.992 8.665 8.665 0 0 1-.372.008Zm-3.918-7.01a1.25 1.25 0 1 0-2.415-.648 1.25 1.25 0 0 0 2.415.647ZM5.723 8.18a1.25 1.25 0 1 0 .647-2.414 1.25 1.25 0 0 0-.647 2.414ZM9.76 6.155a1.25 1.25 0 1 0 .647-2.415 1.25 1.25 0 0 0-.647 2.415Zm4.028 1.759a1.25 1.25 0 1 0 .647-2.415 1.25 1.25 0 0 0-.647 2.415Z"/></svg>', oE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m8.636 9.531-2.758 3.94a.5.5 0 0 0 .122.696l3.224 2.284h1.314l2.636-3.736L8.636 9.53zm.288 8.451L5.14 15.396a2 2 0 0 1-.491-2.786l6.673-9.53a2 2 0 0 1 2.785-.49l3.742 2.62a2 2 0 0 1 .491 2.785l-7.269 10.053-2.147-.066z"/><path d="M4 18h5.523v-1H4zm-2 0h1v-1H2z"/></svg>', rE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 1a9 9 0 1 1-8.027 13.075l1.128-1.129A7.502 7.502 0 0 0 18.5 10a7.5 7.5 0 1 0-14.962.759l-.745-.746-.76.76A9 9 0 0 1 11 1z"/><path d="M.475 8.17a.75.75 0 0 1 .978.047l.075.082 1.284 1.643 1.681-1.284a.75.75 0 0 1 .978.057l.073.083a.75.75 0 0 1-.057.978l-.083.073-2.27 1.737a.75.75 0 0 1-.973-.052l-.074-.082-1.741-2.23a.75.75 0 0 1 .13-1.052z"/><path d="M11.5 5v4.999l3.196 3.196-1.06 1.06L10.1 10.72l-.1-.113V5z"/></svg>', aE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.085 6.22 2.943 4.078a.75.75 0 1 1 1.06-1.06l2.592 2.59A11.094 11.094 0 0 1 10 5.068c4.738 0 8.578 3.101 8.578 5.083 0 1.197-1.401 2.803-3.555 3.887l1.714 1.713a.75.75 0 0 1-.09 1.138.488.488 0 0 1-.15.084.75.75 0 0 1-.821-.16L6.17 7.304c-.258.11-.51.233-.757.365l6.239 6.24-.006.005.78.78c-.388.094-.78.166-1.174.215l-1.11-1.11h.011L4.55 8.197a7.2 7.2 0 0 0-.665.514l-.112.098 4.897 4.897-.005.006 1.276 1.276a10.164 10.164 0 0 1-1.477-.117l-.479-.479-.009.009-4.863-4.863-.022.031a2.563 2.563 0 0 0-.124.2c-.043.077-.08.158-.108.241a.534.534 0 0 0-.028.133.29.29 0 0 0 .008.072.927.927 0 0 0 .082.226c.067.133.145.26.234.379l3.242 3.365.025.01.59.623c-3.265-.918-5.59-3.155-5.59-4.668 0-1.194 1.448-2.838 3.663-3.93zm7.07.531a4.632 4.632 0 0 1 1.108 5.992l.345.344.046-.018a9.313 9.313 0 0 0 2-1.112c.256-.187.5-.392.727-.613.137-.134.27-.277.392-.431.072-.091.141-.185.203-.286.057-.093.107-.19.148-.292a.72.72 0 0 0 .036-.12.29.29 0 0 0 .008-.072.492.492 0 0 0-.028-.133.999.999 0 0 0-.036-.096 2.165 2.165 0 0 0-.071-.145 2.917 2.917 0 0 0-.125-.2 3.592 3.592 0 0 0-.263-.335 5.444 5.444 0 0 0-.53-.523 7.955 7.955 0 0 0-1.054-.768 9.766 9.766 0 0 0-1.879-.891c-.337-.118-.68-.219-1.027-.301zm-2.85.21-.069.002a.508.508 0 0 0-.254.097.496.496 0 0 0-.104.679.498.498 0 0 0 .326.199l.045.005c.091.003.181.003.272.012a2.45 2.45 0 0 1 2.017 1.513c.024.061.043.125.069.185a.494.494 0 0 0 .45.287h.008a.496.496 0 0 0 .35-.158.482.482 0 0 0 .13-.335.638.638 0 0 0-.048-.219 3.379 3.379 0 0 0-.36-.723 3.438 3.438 0 0 0-2.791-1.543l-.028-.001h-.013z"/></svg>', lE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.035 1C2.446 1 2 1.54 2 2.098V10.5h1.5v-8h13v8H18V2.098C18 1.539 17.48 1 16.9 1H3.035Zm10.453 2.61a1.885 1.885 0 0 0-1.442.736 1.89 1.89 0 0 0 1.011 2.976 1.903 1.903 0 0 0 2.253-1.114 1.887 1.887 0 0 0-1.822-2.598ZM7.463 8.163a.611.611 0 0 0-.432.154L5.071 10.5h5.119L7.88 8.348a.628.628 0 0 0-.417-.185Zm6.236 1.059a.62.62 0 0 0-.42.164L12.07 10.5h2.969l-.92-1.113a.618.618 0 0 0-.42-.165ZM.91 11.5a.91.91 0 0 0-.91.912v6.877c0 .505.405.91.91.91h18.178a.91.91 0 0 0 .912-.91v-6.877a.908.908 0 0 0-.912-.912H.91ZM3.668 13h1.947l2.135 5.7H5.898l-.28-.946H3.601l-.278.945H1.516L3.668 13Zm4.947 0h1.801v4.3h2.7v1.4h-4.5V13h-.001Zm4.5 0h5.4v1.4h-1.798v4.3h-1.701v-4.3h-1.9V13h-.001Zm-8.517 1.457-.614 2.059h1.262l-.648-2.059Z"/></svg>', cE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M12.68 13.74h-.001l4.209 4.208a1 1 0 1 0 1.414-1.414l-4.267-4.268a6 6 0 1 0-1.355 1.474ZM13 9a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>', uE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11.463 5.187a.888.888 0 1 1 1.254 1.255L9.16 10l3.557 3.557a.888.888 0 1 1-1.254 1.255L7.26 10.61a.888.888 0 0 1 .16-1.382l4.043-4.042z"/></svg>', dE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.537 14.813a.888.888 0 1 1-1.254-1.255L10.84 10 7.283 6.442a.888.888 0 1 1 1.254-1.255L12.74 9.39a.888.888 0 0 1-.16 1.382l-4.043 4.042z"/></svg>', hE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.66 9.118a.693.693 0 0 1 .956.032l3.65 3.411 2.422-2.238a.695.695 0 0 1 .945 0L17.5 13.6V2.5h-15v11.1l4.16-4.482ZM17.8 1c.652 0 1.2.47 1.2 1.1v14.362c0 .64-.532 1.038-1.184 1.038H2.184C1.532 17.5 1 17.103 1 16.462V2.1C1 1.47 1.537 1 2.2 1h15.6Zm-5.655 6a2.128 2.128 0 0 1 .157-2.364A2.133 2.133 0 1 1 12.145 7Z"/></svg>', fE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1C.538 1 0 1.47 0 2.1v14.363c0 .64.534 1.037 1.186 1.037h9.494a2.97 2.97 0 0 1-.414-.287 2.998 2.998 0 0 1-1.055-2.03 3.003 3.003 0 0 1 .693-2.185l.383-.455-.02.018-3.65-3.41a.695.695 0 0 0-.957-.034L1.5 13.6V2.5h15v5.535a2.97 2.97 0 0 1 1.412.932l.088.105V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.713 2.803a2.146 2.146 0 0 0-2.049 1.992 2.14 2.14 0 0 0 1.28 2.096 2.13 2.13 0 0 0 2.644-3.11 2.134 2.134 0 0 0-1.875-.978Z"/><path d="M15.522 19.1a.79.79 0 0 0 .79-.79v-5.373l2.059 2.455a.79.79 0 1 0 1.211-1.015l-3.352-3.995a.79.79 0 0 0-.995-.179.784.784 0 0 0-.299.221l-3.35 3.99a.79.79 0 1 0 1.21 1.017l1.936-2.306v5.185c0 .436.353.79.79.79Z"/><path d="M15.522 19.1a.79.79 0 0 0 .79-.79v-5.373l2.059 2.455a.79.79 0 1 0 1.211-1.015l-3.352-3.995a.79.79 0 0 0-.995-.179.784.784 0 0 0-.299.221l-3.35 3.99a.79.79 0 1 0 1.21 1.017l1.936-2.306v5.185c0 .436.353.79.79.79Z"/></svg>', mE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1c-.662 0-1.2.47-1.2 1.1v14.248c0 .64.533 1.152 1.185 1.152h6.623v-7.236L6.617 9.15a.694.694 0 0 0-.957-.033L1.602 13.55V2.553l14.798.003V9.7H18V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.723 2.805a2.094 2.094 0 0 0-1.621.832 2.127 2.127 0 0 0 1.136 3.357 2.13 2.13 0 0 0 2.611-1.506 2.133 2.133 0 0 0-.76-2.244 2.13 2.13 0 0 0-1.366-.44Z"/><path clip-rule="evenodd" d="M19.898 12.369v6.187a.844.844 0 0 1-.844.844h-8.719a.844.844 0 0 1-.843-.844v-7.312a.844.844 0 0 1 .843-.844h2.531a.843.843 0 0 1 .597.248l.838.852h4.75c.223 0 .441.114.6.272a.844.844 0 0 1 .247.597Zm-1.52.654-4.377.02-1.1-1.143H11v6h7.4l-.023-4.877Z"/></svg>', gE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1C.538 1 0 1.47 0 2.1v14.363c0 .64.534 1.037 1.186 1.037h7.029a5.401 5.401 0 0 1 .615-4.338l.762-1.232-2.975-2.78a.696.696 0 0 0-.957-.033L1.5 13.6V2.5h15v6.023c.449.131.887.32 1.307.573l.058.033c.046.028.09.057.135.086V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.713 2.803a2.15 2.15 0 0 0-1.611.834 2.118 2.118 0 0 0-.438 1.158 2.14 2.14 0 0 0 1.277 2.096 2.132 2.132 0 0 0 2.645-3.11 2.13 2.13 0 0 0-1.873-.978Z"/><path d="M16.63 10.294a3.003 3.003 0 0 0-4.142.887l-.117.177a.647.647 0 0 0-.096.492.664.664 0 0 0 .278.418.7.7 0 0 0 .944-.234 1.741 1.741 0 0 1 2.478-.463 1.869 1.869 0 0 1 .476 2.55.637.637 0 0 0-.071.5.646.646 0 0 0 .309.396.627.627 0 0 0 .869-.19l.027-.041a3.226 3.226 0 0 0-.956-4.492Zm-6.061 3.78-.044.066a3.228 3.228 0 0 0 .82 4.403 3.005 3.005 0 0 0 4.275-.798l.13-.197a.626.626 0 0 0 .092-.475.638.638 0 0 0-.268-.402.713.713 0 0 0-.99.26l-.018.029a1.741 1.741 0 0 1-2.477.461 1.87 1.87 0 0 1-.475-2.55l.029-.047a.647.647 0 0 0 .086-.485.66.66 0 0 0-.275-.408l-.04-.027a.609.609 0 0 0-.845.17Z"/><path d="M15.312 13.925c.24-.36.154-.838-.19-1.067-.346-.23-.82-.124-1.059.236l-1.268 1.907c-.239.36-.153.838.192 1.067.345.23.818.123 1.057-.236l1.268-1.907Z"/></svg>', pE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m9.239 13.938-2.88-1.663a.75.75 0 0 1 .75-1.3L9 12.067V4.75a.75.75 0 1 1 1.5 0v7.318l1.89-1.093a.75.75 0 0 1 .75 1.3l-2.879 1.663a.752.752 0 0 1-.511.187.752.752 0 0 1-.511-.187zM4.25 17a.75.75 0 1 1 0-1.5h10.5a.75.75 0 0 1 0 1.5H4.25z"/></svg>', bE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.75 11.875a.752.752 0 0 1 .508.184l2.883 1.666a.75.75 0 0 1-.659 1.344l-.091-.044-1.892-1.093.001 4.318a.75.75 0 1 1-1.5 0v-4.317l-1.89 1.092a.75.75 0 0 1-.75-1.3l2.879-1.663a.752.752 0 0 1 .51-.187zM15.25 9a.75.75 0 1 1 0 1.5H4.75a.75.75 0 1 1 0-1.5h10.5zM9.75.375a.75.75 0 0 1 .75.75v4.318l1.89-1.093.092-.045a.75.75 0 0 1 .659 1.344l-2.883 1.667a.752.752 0 0 1-.508.184.752.752 0 0 1-.511-.187L6.359 5.65a.75.75 0 0 1 .75-1.299L9 5.442V1.125a.75.75 0 0 1 .75-.75z"/></svg>', wE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m10.261 7.062 2.88 1.663a.75.75 0 0 1-.75 1.3L10.5 8.933v7.317a.75.75 0 1 1-1.5 0V8.932l-1.89 1.093a.75.75 0 0 1-.75-1.3l2.879-1.663a.752.752 0 0 1 .511-.187.752.752 0 0 1 .511.187zM15.25 4a.75.75 0 1 1 0 1.5H4.75a.75.75 0 0 1 0-1.5h10.5z"/></svg>', _E = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 4c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75z"/></svg>', vE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm2.286 4c0 .414.336.75.75.75h9.928a.75.75 0 1 0 0-1.5H5.036a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h9.928a.75.75 0 1 0 0-1.5H5.036a.75.75 0 0 0-.75.75z"/></svg>', yE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M18 3.75a.75.75 0 0 1-.75.75H2.75a.75.75 0 1 1 0-1.5h14.5a.75.75 0 0 1 .75.75zm0 8a.75.75 0 0 1-.75.75H2.75a.75.75 0 1 1 0-1.5h14.5a.75.75 0 0 1 .75.75zm0 4a.75.75 0 0 1-.75.75H7.321a.75.75 0 1 1 0-1.5h9.929a.75.75 0 0 1 .75.75zm0-8a.75.75 0 0 1-.75.75H7.321a.75.75 0 1 1 0-1.5h9.929a.75.75 0 0 1 .75.75z"/></svg>', CE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 4c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75z"/></svg>', kE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', TE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M15.003 7v5.5a1 1 0 0 1-1 1H5.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H6.5V12h6.997V7.5z"/></svg>', EE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M18.003 7v5.5a1 1 0 0 1-1 1H8.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H9.5V12h6.997V7.5z"/></svg>', AE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M18 7v5.5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1zm-1.505.5H3.504V12h12.991V7.5z"/></svg>', xE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm11.5 9H18v1.5h-4.5zM2 15h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', IE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm11.5 9H18v1.5h-4.5zm0-3H18v1.5h-4.5zm0-3H18v1.5h-4.5zM2 15h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', SE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2zm0-9h5v1.5H2zm0 3h5v1.5H2zm0 3h5v1.5H2z"/><path d="M18.003 7v5.5a1 1 0 0 1-1 1H8.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H9.5V12h6.997V7.5z"/></svg>', PE = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.5 17v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zM1 15.5v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm0-2v1h-1v-1h1zm-19 0v1H0v-1h1zM14.5 2v1h-1V2h1zm2 0v1h-1V2h1zm2 0v1h-1V2h1zm-8 0v1h-1V2h1zm-2 0v1h-1V2h1zm-2 0v1h-1V2h1zm-2 0v1h-1V2h1zm8 0v1h-1V2h1zm-10 0v1h-1V2h1z"/><path d="M18.095 2H1.905C.853 2 0 2.895 0 4v12c0 1.105.853 2 1.905 2h16.19C19.147 18 20 17.105 20 16V4c0-1.105-.853-2-1.905-2zm0 1.5c.263 0 .476.224.476.5v12c0 .276-.213.5-.476.5H1.905a.489.489 0 0 1-.476-.5V4c0-.276.213-.5.476-.5h16.19z"/></svg>', RE = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:v="https://vecta.io/nano" viewBox="0 0 20 20"><path d="M.95 1.43a.95.95 0 0 0-.95.95v3.1a.95.95 0 0 0 .95.95h.75v6.3H.95a.95.95 0 0 0-.95.95v3.1a.95.95 0 0 0 .95.95h3.1a.95.95 0 0 0 .95-.95v-.65h1.932l1.539-1.5H5v-.95a.95.95 0 0 0-.95-.95H3.2v-6.3h.85A.95.95 0 0 0 5 5.48v-.55h10v.55a.95.95 0 0 0 .95.95h3.1a.95.95 0 0 0 .95-.95v-3.1a.95.95 0 0 0-.95-.95h-3.1a.95.95 0 0 0-.95.95v1.05H5V2.38a.95.95 0 0 0-.95-.95H.95zm.55 3.5v-2h2v2h-2zm0 9.3v2h2v-2h-2zm15-11.3v2h2v-2h-2z"/><path d="M8.139 20.004v-2.388l7.045-7.048 2.391 2.391-7.046 7.046h-2.39zm11.421-9.101a.64.64 0 0 1-.138.206l-1.165 1.168-2.391-2.391 1.167-1.163a.63.63 0 0 1 .206-.138.635.635 0 0 1 .243-.049.63.63 0 0 1 .449.187l1.491 1.488c.059.059.108.129.138.206s.049.16.049.243a.6.6 0 0 1-.049.243z"/></svg>', VE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M13 5.5H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2ZM13 7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-8A.5.5 0 0 1 2 7h11Z"/></svg>', ME = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M7 9.5H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2ZM7 11a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-4A.5.5 0 0 1 2 11h5Z"/></svg>', BE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M10 7.5H2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2ZM10 9a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-6A.5.5 0 0 1 2 9h8Z"/></svg>', LE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m7.3 17.37-.061.088a1.518 1.518 0 0 1-.934.535l-4.178.663-.806-4.153a1.495 1.495 0 0 1 .187-1.058l.056-.086L8.77 2.639c.958-1.351 2.803-1.076 4.296-.03 1.497 1.047 2.387 2.693 1.433 4.055L7.3 17.37zM9.14 4.728l-5.545 8.346 3.277 2.294 5.544-8.346L9.14 4.728zM6.07 16.512l-3.276-2.295.53 2.73 2.746-.435zM9.994 3.506 13.271 5.8c.316-.452-.16-1.333-1.065-1.966-.905-.634-1.895-.78-2.212-.328zM8 18.5 9.375 17H19v1.5H8z"/></svg>', OE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.999 2H15a1 1 0 0 1 0 2h-1.004v13a1 1 0 1 1-2 0V4H8.999v13a1 1 0 1 1-2 0v-7A4 4 0 0 1 3 6a4 4 0 0 1 3.999-4z"/></svg>', FE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.423a6.5 6.5 0 0 1 6.056-6.408l.038.67C6.448 5.423 5.354 7.663 5.22 10H9c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574zm8 0a6.5 6.5 0 0 1 6.056-6.408l.038.67c-2.646.739-3.74 2.979-3.873 5.315H17c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574z"/></svg>', NE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="9.5" cy="4.5" r="1.5"/><circle cx="9.5" cy="10.5" r="1.5"/><circle cx="9.5" cy="16.5" r="1.5"/></svg>', DE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3.25a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 3.25a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M5 10a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 10a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M5 16.75a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 16.75a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/></svg>', zE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.187 17H5.773c-.637 0-1.092-.138-1.364-.415-.273-.277-.409-.718-.409-1.323V4.738c0-.617.14-1.062.419-1.332.279-.27.73-.406 1.354-.406h4.68c.69 0 1.288.041 1.793.124.506.083.96.242 1.36.478.341.197.644.447.906.75a3.262 3.262 0 0 1 .808 2.162c0 1.401-.722 2.426-2.167 3.075C15.05 10.175 16 11.315 16 13.01a3.756 3.756 0 0 1-2.296 3.504 6.1 6.1 0 0 1-1.517.377c-.571.073-1.238.11-2 .11zm-.217-6.217H7v4.087h3.069c1.977 0 2.965-.69 2.965-2.072 0-.707-.256-1.22-.768-1.537-.512-.319-1.277-.478-2.296-.478zM7 5.13v3.619h2.606c.729 0 1.292-.067 1.69-.2a1.6 1.6 0 0 0 .91-.765c.165-.267.247-.566.247-.897 0-.707-.26-1.176-.778-1.409-.519-.232-1.31-.348-2.375-.348H7z"/></svg>', HE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 5.5H7v5h3.5a2.5 2.5 0 1 0 0-5zM5 3h6.5v.025a5 5 0 0 1 0 9.95V13H7v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/></svg>', UE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 0 0-1 1v6H3a1 1 0 1 0 0 2h6v6a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V3a1 1 0 0 0-1-1Z"/></svg>', $E = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.816 11.5 7.038 4.785 4.261 11.5h5.555Zm.62 1.5H3.641l-1.666 4.028H.312l5.789-14h1.875l5.789 14h-1.663L10.436 13Z"/><path d="m12.09 17-.534-1.292.848-1.971.545 1.319L12.113 17h-.023Zm1.142-5.187.545 1.319L15.5 9.13l1.858 4.316h-3.45l.398.965h3.467L18.887 17H20l-3.873-9h-1.254l-1.641 3.813Z"/></svg>', WE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M19 4.5 14 0H3v12.673l.868-1.041c.185-.222.4-.402.632-.54V1.5h8v5h5v7.626a2.24 2.24 0 0 1 1.5.822V4.5ZM14 5V2l3.3 3H14Zm-3.692 12.5c.062.105.133.206.213.303L11.52 19H8v-.876a2.243 2.243 0 0 0 1.82-.624h.488Zm7.518-.657a.75.75 0 0 0-1.152-.96L15.5 17.29V12H14v5.29l-1.174-1.408a.75.75 0 0 0-1.152.96l2.346 2.816a.95.95 0 0 0 1.46 0l2.346-2.815Zm-15.056-.38a.75.75 0 0 1-.096-1.056l2.346-2.815a.95.95 0 0 1 1.46 0l2.346 2.815a.75.75 0 1 1-1.152.96L6.5 14.96V20H5v-5.04l-1.174 1.408a.75.75 0 0 1-1.056.096Z"/></svg>', qE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m14.958 9.367-2.189 1.837a.75.75 0 0 0 .965 1.149l3.788-3.18a.747.747 0 0 0 .21-.284.75.75 0 0 0-.17-.945L13.77 4.762a.75.75 0 1 0-.964 1.15l2.331 1.955H6.22A.75.75 0 0 0 6 7.9a4 4 0 1 0 1.477 7.718l-.344-1.489A2.5 2.5 0 1 1 6.039 9.4l-.008-.032h8.927z"/></svg>', GE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m5.042 9.367 2.189 1.837a.75.75 0 0 1-.965 1.149l-3.788-3.18a.747.747 0 0 1-.21-.284.75.75 0 0 1 .17-.945L6.23 4.762a.75.75 0 1 1 .964 1.15L4.863 7.866h8.917A.75.75 0 0 1 14 7.9a4 4 0 1 1-1.477 7.718l.344-1.489a2.5 2.5 0 1 0 1.094-4.73l.008-.032H5.042z"/></svg>', jE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 5.75c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zm-6 0C1 4.784 1.777 4 2.75 4c.966 0 1.75.777 1.75 1.75 0 .966-.777 1.75-1.75 1.75C1.784 7.5 1 6.723 1 5.75zm6 9c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zm-6 0c0-.966.777-1.75 1.75-1.75.966 0 1.75.777 1.75 1.75 0 .966-.777 1.75-1.75 1.75-.966 0-1.75-.777-1.75-1.75z"/></svg>', KE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 5.75c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM3.5 3v5H2V3.7H1v-1h2.5V3zM.343 17.857l2.59-3.257H2.92a.6.6 0 1 0-1.04 0H.302a2 2 0 1 1 3.995 0h-.001c-.048.405-.16.734-.333.988-.175.254-.59.692-1.244 1.312H4.3v1h-4l.043-.043zM7 14.75a.75.75 0 0 1 .75-.75h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75z"/></svg>', ZE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m2.315 14.705 2.224-2.24a.689.689 0 0 1 .963 0 .664.664 0 0 1 0 .949L2.865 16.07a.682.682 0 0 1-.112.089.647.647 0 0 1-.852-.051L.688 14.886a.635.635 0 0 1 0-.903.647.647 0 0 1 .91 0l.717.722zm5.185.045a.75.75 0 0 1 .75-.75h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75zM2.329 5.745l2.21-2.226a.689.689 0 0 1 .963 0 .664.664 0 0 1 0 .95L2.865 7.125a.685.685 0 0 1-.496.196.644.644 0 0 1-.468-.187L.688 5.912a.635.635 0 0 1 0-.903.647.647 0 0 1 .91 0l.73.736zM7.5 5.75A.75.75 0 0 1 8.25 5h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75z"/></svg>', JE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M12.87 12.61a.75.75 0 0 1-.089.976l-.085.07-3.154 2.254 3.412 2.414a.75.75 0 0 1 .237.95l-.057.095a.75.75 0 0 1-.95.237l-.096-.058-4.272-3.022-.003-1.223 4.01-2.867a.75.75 0 0 1 1.047.174zm2.795-.231.095.057 4.011 2.867-.003 1.223-4.272 3.022-.095.058a.75.75 0 0 1-.88-.151l-.07-.086-.058-.095a.75.75 0 0 1 .15-.88l.087-.07 3.412-2.414-3.154-2.253-.085-.071a.75.75 0 0 1 .862-1.207zM16 0a2 2 0 0 1 2 2v9.354l-.663-.492-.837-.001V2a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v15a.5.5 0 0 0 .5.5h3.118L7.156 19H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h14zM5.009 15l.003 1H3v-1h2.009zm2.188-2-1.471 1H5v-1h2.197zM10 11v.095L8.668 12H7v-1h3zm4-2v1H7V9h7zm0-2v1H7V7h7zm-4-2v1H5V5h5zM6 3v1H3V3h3z"/></svg>', XE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11.627 16.5zm5.873-.196zm0-7.001V8h-13v8.5h4.341c.191.54.457 1.044.785 1.5H2a1.5 1.5 0 0 1-1.5-1.5v-13A1.5 1.5 0 0 1 2 2h4.5a1.5 1.5 0 0 1 1.06.44L9.122 4H16a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 19 8v2.531a6.027 6.027 0 0 0-1.5-1.228zM16 6.5v-1H8.5l-2-2H2v13h1V8a1.5 1.5 0 0 1 1.5-1.5H16z"/><path d="M14.5 19.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zM15 14v-2h-1v2h-2v1h2v2h1v-2h2v-1h-2z"/></svg>', YE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M19 9v10h-2v-8h-2V9h4zM4 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V11H4v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H3a1 1 0 0 1 1 1v4.5z"/></svg>', QE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V11H3v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H2a1 1 0 0 1 1 1v4.5zm16.076 8.343V18.5h-6.252c.067-.626.27-1.22.61-1.78.338-.561 1.006-1.305 2.005-2.232.804-.749 1.297-1.257 1.479-1.523.245-.368.368-.732.368-1.092 0-.398-.107-.703-.32-.917-.214-.214-.51-.32-.886-.32-.372 0-.669.111-.889.336-.22.224-.347.596-.38 1.117l-1.778-.178c.106-.982.438-1.686.997-2.114.558-.427 1.257-.64 2.095-.64.918 0 1.64.247 2.164.742.525.495.787 1.11.787 1.847 0 .419-.075.818-.225 1.197-.15.378-.388.775-.714 1.19-.216.275-.605.67-1.168 1.187-.563.516-.92.859-1.07 1.028a3.11 3.11 0 0 0-.365.495h3.542z"/></svg>', eA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V11H3v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H2a1 1 0 0 1 1 1v4.5zm9.989 7.53 1.726-.209c.055.44.203.777.445 1.01.24.232.533.349.876.349.368 0 .678-.14.93-.42.251-.279.377-.655.377-1.13 0-.448-.12-.803-.362-1.066a1.153 1.153 0 0 0-.882-.393c-.228 0-.501.044-.819.133l.197-1.453c.482.012.85-.092 1.105-.315.253-.222.38-.517.38-.885 0-.313-.093-.563-.279-.75-.186-.185-.434-.278-.743-.278a1.07 1.07 0 0 0-.78.317c-.216.212-.347.52-.394.927l-1.644-.28c.114-.562.287-1.012.517-1.348.231-.337.553-.601.965-.794a3.24 3.24 0 0 1 1.387-.289c.876 0 1.579.28 2.108.838.436.457.653.973.653 1.549 0 .817-.446 1.468-1.339 1.955.533.114.96.37 1.28.768.319.398.478.878.478 1.441 0 .817-.298 1.513-.895 2.088-.596.576-1.339.864-2.228.864-.842 0-1.54-.243-2.094-.727-.555-.485-.876-1.118-.965-1.901z"/></svg>', tA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm13.55 10v-1.873h-3.81v-1.561l4.037-5.91h1.498v5.904h1.156v1.567h-1.156V18.5H17.05zm0-3.44v-3.18l-2.14 3.18h2.14z"/></svg>', nA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm9.578 7.607 1.777-.184c.05.402.201.72.45.955a1.223 1.223 0 0 0 1.81-.101c.258-.303.387-.759.387-1.368 0-.572-.128-1-.384-1.286-.256-.285-.59-.428-1-.428-.512 0-.971.226-1.377.679l-1.448-.21.915-4.843h4.716v1.67H15.56l-.28 1.58a2.697 2.697 0 0 1 1.219-.298 2.68 2.68 0 0 1 2.012.863c.55.576.825 1.323.825 2.241a3.36 3.36 0 0 1-.666 2.05c-.605.821-1.445 1.232-2.52 1.232-.86 0-1.56-.23-2.101-.692-.542-.461-.866-1.081-.971-1.86z"/></svg>', iA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm15.595 2.973-1.726.19c-.043-.355-.153-.617-.33-.787-.178-.169-.409-.253-.692-.253-.377 0-.695.169-.956.507-.26.339-.424 1.043-.492 2.114.445-.525.997-.787 1.657-.787.745 0 1.383.284 1.914.85.531.568.797 1.3.797 2.197 0 .952-.28 1.716-.838 2.291-.559.576-1.276.864-2.152.864-.94 0-1.712-.365-2.317-1.095-.605-.73-.908-1.927-.908-3.59 0-1.705.316-2.935.946-3.688.63-.753 1.45-1.13 2.457-1.13.706 0 1.291.198 1.755.594.463.395.758.97.885 1.723zm-4.043 3.891c0 .58.133 1.028.4 1.343.266.315.57.473.914.473.33 0 .605-.13.825-.388.22-.258.33-.68.33-1.27 0-.604-.118-1.047-.355-1.329a1.115 1.115 0 0 0-.89-.422c-.342 0-.632.134-.869.403s-.355.666-.355 1.19z"/></svg>', sA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 9h16v2H2z"/></svg>', oA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17 0a2 2 0 0 1 2 2v7a1 1 0 0 1 1 1v5a1 1 0 0 1-.883.993l-.118.006L19 17a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2l-.001-1.001-.116-.006A1 1 0 0 1 0 15v-5a1 1 0 0 1 .999-1L1 2a2 2 0 0 1 2-2h14zm.499 15.999h-15L2.5 17a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5l-.001-1.001zm-3.478-6.013-.014.014H14v.007l-1.525 1.525-1.46-1.46-.015.013V10h-1v5h1v-3.53l1.428 1.43.048.043.131-.129L14 11.421V15h1v-5h-.965l-.014-.014zM2 10H1v5h1v-2h2v2h1v-5H4v2H2v-2zm7 0H6v1h1v4h1v-4h1v-1zm8 0h-1v5h3v-1h-2v-4zm0-8.5H3a.5.5 0 0 0-.5.5l-.001 6.999h15L17.5 2a.5.5 0 0 0-.5-.5zM10 7v1H4V7h6zm3-2v1H4V5h9zm-3-2v1H4V3h6z"/></svg>', rA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm5 6c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM2.75 16.5h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 1 0 0 1.5zM1.632 6.95 5.02 9.358a.4.4 0 0 1-.013.661l-3.39 2.207A.4.4 0 0 1 1 11.892V7.275a.4.4 0 0 1 .632-.326z"/></svg>', aA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm5 6c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM2.75 16.5h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 1 0 0 1.5zm1.618-9.55L.98 9.358a.4.4 0 0 0 .013.661l3.39 2.207A.4.4 0 0 0 5 11.892V7.275a.4.4 0 0 0-.632-.326z"/></svg>', lA = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 5.5v3h4v-3H3Zm0 4v3h4v-3H3Zm0 4v3h4v-3H3Zm5 3h4v-3H8v3Zm5 0h4v-3h-4v3Zm4-4v-3h-4v3h4Zm0-4v-3h-4v3h4Zm1.5 8A1.5 1.5 0 0 1 17 18H3a1.5 1.5 0 0 1-1.5-1.5V3c.222-.863 1.068-1.5 2-1.5h13c.932 0 1.778.637 2 1.5v13.5Zm-6.5-4v-3H8v3h4Zm0-4v-3H8v3h4Z"/></svg>';
 /**
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
@@ -27122,8 +27122,8 @@ const A = {
   todoList: ZE,
   codeBlock: JE,
   browseFiles: XE,
-  heading1: QE,
-  heading2: YE,
+  heading1: YE,
+  heading2: QE,
   heading3: eA,
   heading4: tA,
   heading5: nA,
@@ -27798,12 +27798,12 @@ class mA extends wt {
         return;
       this.focusObserver.flush();
       const c = new St(t, "insertText");
-      t.fire(c, new Yn(e, l, {
+      t.fire(c, new Qn(e, l, {
         text: o,
         selection: e.createSelection(r)
       })), c.stop.called && n.stop();
     }), t.on("compositionend", (n, { data: s, domEvent: o }) => {
-      !this.isEnabled || M.isAndroid || s && t.fire("insertText", new Yn(e, o, {
+      !this.isEnabled || M.isAndroid || s && t.fire("insertText", new Qn(e, o, {
         text: s,
         selection: t.selection
       }));
@@ -28085,7 +28085,7 @@ class bA extends wt {
       };
       u.unit == zt && (u.selectionToRemove = e.createSelection(r[0])), l === "deleteContentBackward" && (M.isAndroid && (u.sequence = 1), _A(r) && (u.unit = zt, u.selectionToRemove = e.createSelection(r)));
       const d = new hi(t, "delete", r[0]);
-      t.fire(d, new Yn(e, a, u)), d.stop.called && s.stop();
+      t.fire(d, new Qn(e, a, u)), d.stop.called && s.stop();
     }), M.isBlink && wA(this);
   }
   /**
@@ -28112,7 +28112,7 @@ function wA(i) {
         direction: r(l),
         selectionToRemove: u
       };
-      t.fire(f, new Yn(e, c, m));
+      t.fire(f, new Qn(e, c, m));
     }
   }), t.on("beforeinput", (a, { inputType: l }) => {
     const c = fg[l];
@@ -28349,7 +28349,7 @@ class Eo extends b {
    */
   _enableClickingAfterNode() {
     const e = this.editor, t = e.model, n = t.document.selection, s = e.editing.view.document;
-    e.editing.view.addObserver(Qo);
+    e.editing.view.addObserver(Yo);
     let o = !1;
     this.listenTo(s, "mousedown", () => {
       o = !0;
@@ -28591,7 +28591,7 @@ class yA extends b {
   }
 }
 function CA(i) {
-  return typeof i == "string" ? new RegExp(`(${Yf(i)})$`) : i;
+  return typeof i == "string" ? new RegExp(`(${Qf(i)})$`) : i;
 }
 function kA(i) {
   return typeof i == "string" ? () => [i] : i instanceof Array ? () => i : i;
@@ -29837,7 +29837,7 @@ class NA extends T {
         tabindex: -1
       },
       children: [
-        Ye(document, "p", {}, n("Below, you can find a list of keyboard shortcuts that can be used in the editor.")),
+        Qe(document, "p", {}, n("Below, you can find a list of keyboard shortcuts that can be used in the editor.")),
         ...this._createCategories(Array.from(t.values())),
         s
       ]
@@ -29856,11 +29856,11 @@ class NA extends T {
     return e.map((t) => {
       const n = [
         // Category header.
-        Ye(document, "h3", {}, t.label),
+        Qe(document, "h3", {}, t.label),
         // Category definitions (<dl>) and their optional headers (<h4>).
         ...Array.from(t.groups.values()).map((s) => this._createGroup(s)).flat()
       ];
-      return t.description && n.splice(1, 0, Ye(document, "p", {}, t.description)), Ye(document, "section", {}, n);
+      return t.description && n.splice(1, 0, Qe(document, "p", {}, t.description)), Qe(document, "section", {}, n);
     });
   }
   /**
@@ -29868,15 +29868,15 @@ class NA extends T {
    */
   _createGroup(e) {
     const t = e.keystrokes.sort((s, o) => s.label.localeCompare(o.label)).map((s) => this._createGroupRow(s)).flat(), n = [
-      Ye(document, "dl", {}, t)
+      Qe(document, "dl", {}, t)
     ];
-    return e.label && n.unshift(Ye(document, "h4", {}, e.label)), n;
+    return e.label && n.unshift(Qe(document, "h4", {}, e.label)), n;
   }
   /**
    * Creates `<dt>Keystroke label</dt><dd>Keystroke definition</dd>` elements for each keystroke in a group.
    */
   _createGroupRow(e) {
-    const t = this.locale.t, n = Ye(document, "dt"), s = Ye(document, "dd"), o = zA(e.keystroke), r = [];
+    const t = this.locale.t, n = Qe(document, "dt"), s = Qe(document, "dd"), o = zA(e.keystroke), r = [];
     for (const a of o)
       r.push(a.map(DA).join(""));
     return n.innerHTML = e.label, s.innerHTML = r.join(", ") + (e.mayRequireFn && M.isMac ? ` ${t("(may require <kbd>Fn</kbd>)")}` : ""), [n, s];
@@ -30012,7 +30012,7 @@ class UA extends ve {
       children: this
     }).render();
     let e = document.querySelector(".ck-body-wrapper");
-    e || (e = Ye(document, "div", { class: "ck-body-wrapper" }), document.body.appendChild(e)), e.appendChild(this._bodyCollectionContainer);
+    e || (e = Qe(document, "div", { class: "ck-body-wrapper" }), document.body.appendChild(e)), e.appendChild(this._bodyCollectionContainer);
   }
   /**
    * Detaches the collection from the DOM structure. Use this method when you do not need to use the body collection
@@ -30804,7 +30804,7 @@ var xg = {
   yellowgreen: [154, 205, 50]
 };
 const Xu = /* @__PURE__ */ Ag(xg);
-var Qu = {
+var Yu = {
   red: 0,
   orange: 60,
   yellow: 120,
@@ -30812,7 +30812,7 @@ var Qu = {
   blue: 240,
   purple: 300
 };
-function Yu(i) {
+function Qu(i) {
   var e, t = [], n = 1, s;
   if (typeof i == "string")
     if (Xu[i])
@@ -30840,8 +30840,8 @@ function Yu(i) {
         if (o[f] === "h") {
           if (/deg$/.test(h))
             return parseFloat(h);
-          if (Qu[h] !== void 0)
-            return Qu[h];
+          if (Yu[h] !== void 0)
+            return Yu[h];
         }
         return parseFloat(h);
       }), l === o && t.push(1), n = c || t[r] === void 0 ? 1 : t[r], t = t.slice(0, r);
@@ -31238,7 +31238,7 @@ function XA(i, e) {
     t.unshift(e[s].parent), n = JA(xo[e[s].parent][s], n), s = e[s].parent;
   return n.conversion = t, n;
 }
-var QA = function(i) {
+var YA = function(i) {
   const e = ZA(i), t = {}, n = Object.keys(e);
   for (let s = n.length, o = 0; o < s; o++) {
     const r = n[o];
@@ -31246,7 +31246,7 @@ var QA = function(i) {
   }
   return t;
 };
-const ba = Sg, YA = QA, $n = {}, ex = Object.keys(ba);
+const ba = Sg, QA = YA, $n = {}, ex = Object.keys(ba);
 function tx(i) {
   const e = function(...t) {
     const n = t[0];
@@ -31270,7 +31270,7 @@ function nx(i) {
 }
 ex.forEach((i) => {
   $n[i] = {}, Object.defineProperty($n[i], "channels", { value: ba[i].channels }), Object.defineProperty($n[i], "labels", { value: ba[i].labels });
-  const e = YA(i);
+  const e = QA(i);
   Object.keys(e).forEach((n) => {
     const s = e[n];
     $n[i][n] = nx(s), $n[i][n].raw = tx(s);
@@ -31330,7 +31330,7 @@ function rx(i, e) {
 }
 function Mg(i) {
   if (i.startsWith("#")) {
-    const t = Yu(i);
+    const t = Qu(i);
     return {
       space: "hex",
       values: t.values,
@@ -31338,7 +31338,7 @@ function Mg(i) {
       alpha: t.alpha
     };
   }
-  const e = Yu(i);
+  const e = Qu(i);
   return e.space ? e : null;
 }
 function ax(i) {
@@ -32371,7 +32371,7 @@ class wx {
    */
   _enableGroupingOnResize() {
     let e;
-    this.resizeObserver = new Y(this.viewElement, (t) => {
+    this.resizeObserver = new Q(this.viewElement, (t) => {
       (!e || e !== t.contentRect.width || this.shouldUpdateGroupingOnNextResize) && (this.shouldUpdateGroupingOnNextResize = !1, this._updateGrouping(), e = t.contentRect.width);
     }), this._updateGrouping();
   }
@@ -33288,7 +33288,7 @@ class Zx extends U(ke) {
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 const { eraser: Jx, colorPalette: Xx } = A;
-class Qx extends T {
+class Yx extends T {
   /**
    * Creates an instance of the view.
    *
@@ -33480,7 +33480,7 @@ class Qx extends T {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class Yx extends T {
+class Qx extends T {
   /**
    * Creates an instance of the view.
    *
@@ -33647,7 +33647,7 @@ class Vl extends T {
         // Navigate list items forwards using the <kbd>Tab</kbd> key.
         focusNext: "tab"
       }
-    }), this.colorGridsFragmentView = new Qx(e, {
+    }), this.colorGridsFragmentView = new Yx(e, {
       colors: t,
       columns: n,
       removeButtonLabel: s,
@@ -33656,7 +33656,7 @@ class Vl extends T {
       colorPickerLabel: a,
       focusTracker: this.focusTracker,
       focusables: this._focusables
-    }), this.colorPickerFragmentView = new Yx(e, {
+    }), this.colorPickerFragmentView = new Qx(e, {
       focusables: this._focusables,
       focusTracker: this.focusTracker,
       keystrokes: this.keystrokes,
@@ -34037,7 +34037,7 @@ class iI extends T {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-const Qe = {
+const Ye = {
   SCREEN_CENTER: "screen-center",
   EDITOR_CENTER: "editor-center",
   EDITOR_TOP_SIDE: "editor-top-side",
@@ -34053,7 +34053,7 @@ class si extends tI(T) {
   constructor(e, { getCurrentDomRoot: t, getViewportOffset: n }) {
     super(e), this.wasMoved = !1;
     const s = this.bindTemplate, o = e.t;
-    this.set("className", ""), this.set("ariaLabel", o("Editor dialog")), this.set("isModal", !1), this.set("position", Qe.SCREEN_CENTER), this.set("_isVisible", !1), this.set("_isTransparent", !1), this.set("_top", 0), this.set("_left", 0), this._getCurrentDomRoot = t, this._getViewportOffset = n, this.decorate("moveTo"), this.parts = this.createCollection(), this.keystrokes = new ie(), this.focusTracker = new X(), this._focusables = new ve(), this._focusCycler = new ge({
+    this.set("className", ""), this.set("ariaLabel", o("Editor dialog")), this.set("isModal", !1), this.set("position", Ye.SCREEN_CENTER), this.set("_isVisible", !1), this.set("_isTransparent", !1), this.set("_top", 0), this.set("_left", 0), this._getCurrentDomRoot = t, this._getViewportOffset = n, this.decorate("moveTo"), this.parts = this.createCollection(), this.keystrokes = new ie(), this.focusTracker = new X(), this._focusables = new ve(), this._focusCycler = new ge({
       focusables: this._focusables,
       focusTracker: this.focusTracker,
       keystrokeHandler: this.keystrokes,
@@ -34178,10 +34178,10 @@ class si extends tI(T) {
       return;
     const e = this._getViewportRect();
     let t = this.position, n;
-    this._getCurrentDomRoot() ? n = this._getVisibleDomRootRect(e) : t = Qe.SCREEN_CENTER;
+    this._getCurrentDomRoot() ? n = this._getVisibleDomRootRect(e) : t = Ye.SCREEN_CENTER;
     const s = si.defaultOffset, o = this._getDialogRect();
     switch (t) {
-      case Qe.EDITOR_TOP_SIDE: {
+      case Ye.EDITOR_TOP_SIDE: {
         if (n) {
           const r = this.locale.contentLanguageDirection === "ltr" ? n.right - o.width - s : n.left + s;
           this.moveTo(r, n.top + s);
@@ -34189,27 +34189,27 @@ class si extends tI(T) {
           this._moveOffScreen();
         break;
       }
-      case Qe.EDITOR_CENTER: {
+      case Ye.EDITOR_CENTER: {
         n ? this.moveTo(Math.round(n.left + n.width / 2 - o.width / 2), Math.round(n.top + n.height / 2 - o.height / 2)) : this._moveOffScreen();
         break;
       }
-      case Qe.SCREEN_CENTER: {
+      case Ye.SCREEN_CENTER: {
         this.moveTo(Math.round((e.width - o.width) / 2), Math.round((e.height - o.height) / 2));
         break;
       }
-      case Qe.EDITOR_TOP_CENTER: {
+      case Ye.EDITOR_TOP_CENTER: {
         n ? this.moveTo(Math.round(n.left + n.width / 2 - o.width / 2), n.top + s) : this._moveOffScreen();
         break;
       }
-      case Qe.EDITOR_BOTTOM_CENTER: {
+      case Ye.EDITOR_BOTTOM_CENTER: {
         n ? this.moveTo(Math.round(n.left + n.width / 2 - o.width / 2), n.bottom - o.height - s) : this._moveOffScreen();
         break;
       }
-      case Qe.EDITOR_ABOVE_CENTER: {
+      case Ye.EDITOR_ABOVE_CENTER: {
         n ? this.moveTo(Math.round(n.left + n.width / 2 - o.width / 2), n.top - o.height - s) : this._moveOffScreen();
         break;
       }
-      case Qe.EDITOR_BELOW_CENTER: {
+      case Ye.EDITOR_BELOW_CENTER: {
         n ? this.moveTo(Math.round(n.left + n.width / 2 - o.width / 2), n.bottom + s) : this._moveOffScreen();
         break;
       }
@@ -34440,7 +34440,7 @@ class kt extends b {
     const h = this.view;
     h.on("close", () => {
       this.hide();
-    }), d.ui.view.body.add(h), d.ui.focusTracker.add(h.element), d.keystrokes.listenTo(h.element), c || (c = l ? Qe.SCREEN_CENTER : Qe.EDITOR_CENTER), h.set({
+    }), d.ui.view.body.add(h), d.ui.focusTracker.add(h.element), d.keystrokes.listenTo(h.element), c || (c = l ? Ye.SCREEN_CENTER : Ye.EDITOR_CENTER), h.set({
       position: c,
       _isVisible: !0,
       className: a,
@@ -35011,7 +35011,7 @@ class pe extends Le() {
     o.has(this.balloonPanelView) || o.add(this.balloonPanelView), this.tooltipTextView.text = t, this.balloonPanelView.pin({
       target: e,
       positions: pe.getPositioningFunctions(n)
-    }), this._resizeObserver = new Y(e, () => {
+    }), this._resizeObserver = new Q(e, () => {
       mn(e) || this._unpinTooltip();
     }), this._mutationObserver.attach(e), this.balloonPanelView.class = [dd, s].filter((r) => r).join(" ");
     for (const r of pe._editors)
@@ -36614,7 +36614,7 @@ class VI extends T {
    * @param query The search query string.
    */
   search(e) {
-    const t = e ? new RegExp(Yf(e), "ig") : null, n = this.filteredView.filter(t);
+    const t = e ? new RegExp(Qf(e), "ig") : null, n = this.filteredView.filter(t);
     this.fire("search", { query: e, ...n });
   }
   /**
@@ -36879,7 +36879,7 @@ const zs = 5, ki = {
       contextElements: () => i.children.map((e) => e.element)
     });
   }
-}, Yt = {
+}, Qt = {
   /**
    * If the button of the menu is focused, pressing the arrow down key should open the panel and focus it.
    * This is analogous to the {@link module:ui/dropdown/dropdownview~DropdownView}.
@@ -37496,7 +37496,7 @@ class Ge extends T {
    * @inheritDoc
    */
   render() {
-    super.render(), this.focusTracker.add(this.buttonView.element), this.focusTracker.add(this.panelView.element), this.keystrokes.listenTo(this.element), Yt.closeOnEscKey(this), this._repositionPanelOnOpen();
+    super.render(), this.focusTracker.add(this.buttonView.element), this.focusTracker.add(this.panelView.element), this.keystrokes.listenTo(this.element), Qt.closeOnEscKey(this), this._repositionPanelOnOpen();
   }
   // For now, this method cannot be called in the render process because the `parentMenuView` may be assigned
   // after the rendering process.
@@ -37508,7 +37508,7 @@ class Ge extends T {
    * @internal
    */
   _attachBehaviors() {
-    this.parentMenuView ? (Yt.openOnButtonClick(this), Yt.openOnArrowRightKey(this), Yt.closeOnArrowLeftKey(this), Yt.closeOnParentClose(this)) : (this._propagateArrowKeystrokeEvents(), Yt.openAndFocusPanelOnArrowDownKey(this), Yt.toggleOnButtonClick(this));
+    this.parentMenuView ? (Qt.openOnButtonClick(this), Qt.openOnArrowRightKey(this), Qt.closeOnArrowLeftKey(this), Qt.closeOnParentClose(this)) : (this._propagateArrowKeystrokeEvents(), Qt.openAndFocusPanelOnArrowDownKey(this), Qt.toggleOnButtonClick(this));
   }
   /**
    * Fires `arrowright` and `arrowleft` events when the user pressed corresponding arrow keys.
@@ -37847,7 +37847,7 @@ const JI = {
   insertParagraph: { isSoft: !1 },
   insertLineBreak: { isSoft: !0 }
 };
-class Qg extends wt {
+class Yg extends wt {
   /**
    * @inheritDoc
    */
@@ -37866,7 +37866,7 @@ class Qg extends wt {
       if (!l)
         return;
       const c = new hi(t, "enter", o.targetRanges[0]);
-      t.fire(c, new Yn(e, a, {
+      t.fire(c, new Qn(e, a, {
         isSoft: l.isSoft
       })), c.stop.called && s.stop();
     });
@@ -37895,7 +37895,7 @@ class ar extends b {
   }
   init() {
     const e = this.editor, t = e.editing.view, n = t.document, s = this.editor.t;
-    t.addObserver(Qg), e.commands.add("enter", new ZI(e)), this.listenTo(n, "enter", (o, r) => {
+    t.addObserver(Yg), e.commands.add("enter", new ZI(e)), this.listenTo(n, "enter", (o, r) => {
       n.isComposing || r.preventDefault(), !r.isSoft && (e.execute("enter"), t.scrollToTheSelection());
     }, { priority: "low" }), e.accessibility.addKeystrokeInfos({
       keystrokes: [
@@ -37918,7 +37918,7 @@ class XI extends V {
   execute() {
     const e = this.editor.model, t = e.document;
     e.change((n) => {
-      YI(e, n, t.selection), this.fire("afterExecute", { writer: n });
+      QI(e, n, t.selection), this.fire("afterExecute", { writer: n });
     });
   }
   /**
@@ -37926,10 +37926,10 @@ class XI extends V {
    */
   refresh() {
     const e = this.editor.model, t = e.document;
-    this.isEnabled = QI(e.schema, t.selection);
+    this.isEnabled = YI(e.schema, t.selection);
   }
 }
-function QI(i, e) {
+function YI(i, e) {
   if (e.rangeCount > 1)
     return !1;
   const t = e.anchor;
@@ -37938,7 +37938,7 @@ function QI(i, e) {
   const n = e.getFirstRange(), s = n.start.parent, o = n.end.parent;
   return !((Ca(s, i) || Ca(o, i)) && s !== o);
 }
-function YI(i, e, t) {
+function QI(i, e, t) {
   const n = t.isCollapsed, s = t.getFirstRange(), o = s.start.parent, r = s.end.parent, a = o == r;
   if (n) {
     const l = Xg(i.schema, t.getAttributes());
@@ -37977,7 +37977,7 @@ class eS extends b {
     }), n.for("downcast").elementToElement({
       model: "softBreak",
       view: (a, { writer: l }) => l.createEmptyElement("br")
-    }), s.addObserver(Qg), e.commands.add("shiftEnter", new XI(e)), this.listenTo(o, "enter", (a, l) => {
+    }), s.addObserver(Yg), e.commands.add("shiftEnter", new XI(e)), this.listenTo(o, "enter", (a, l) => {
       o.isComposing || l.preventDefault(), l.isSoft && (e.execute("shiftEnter"), s.scrollToTheSelection());
     }, { priority: "low" }), e.accessibility.addKeystrokeInfos({
       keystrokes: [
@@ -38073,7 +38073,7 @@ function ae(i) {
 function lr(i, e, t = {}) {
   if (!i.is("containerElement"))
     throw new g("widget-to-widget-wrong-element-type", null, { element: i });
-  return e.setAttribute("contenteditable", "false", i), e.addClass(sS, i), e.setCustomProperty("widget", !0, i), i.getFillerOffset = cS, e.setCustomProperty("widgetLabel", [], i), t.label && aS(i, t.label), t.hasSelectionHandle && uS(i, e), Yg(i, e), i;
+  return e.setAttribute("contenteditable", "false", i), e.addClass(sS, i), e.setCustomProperty("widget", !0, i), i.getFillerOffset = cS, e.setCustomProperty("widgetLabel", [], i), t.label && aS(i, t.label), t.hasSelectionHandle && uS(i, e), Qg(i, e), i;
 }
 function oS(i, e, t) {
   if (e.classes && t.addClass(Z(e.classes), i), e.attributes)
@@ -38085,7 +38085,7 @@ function rS(i, e, t) {
     for (const n in e.attributes)
       t.removeAttribute(n, i);
 }
-function Yg(i, e, t = oS, n = rS) {
+function Qg(i, e, t = oS, n = rS) {
   const s = new tS();
   s.on("change:top", (a, l) => {
     l.oldDescriptor && n(i, l.oldDescriptor, l.writer), l.newDescriptor && t(i, l.newDescriptor, l.writer);
@@ -38104,7 +38104,7 @@ function Ml(i, e, t = {}) {
     e.setAttribute("contenteditable", o ? "false" : "true", i);
   }), i.on("change:isFocused", (n, s, o) => {
     o ? e.addClass("ck-editor__nested-editable_focused", i) : e.removeClass("ck-editor__nested-editable_focused", i);
-  }), Yg(i, e), i;
+  }), Qg(i, e), i;
 }
 function Bl(i, e) {
   const t = i.getSelectedElement();
@@ -38759,7 +38759,7 @@ class gi extends b {
           const f = h.item;
           ae(f) && !xS(f, u) && (l.addClass(vd, f), this._previouslySelected.add(f), u = f);
         }
-    }, { priority: "low" }), t.addObserver(Qo), this.listenTo(n, "mousedown", (...o) => this._onMousedown(...o)), this.listenTo(n, "arrowKey", (...o) => {
+    }, { priority: "low" }), t.addObserver(Yo), this.listenTo(n, "mousedown", (...o) => this._onMousedown(...o)), this.listenTo(n, "arrowKey", (...o) => {
       this._handleSelectionChangeOnArrowKeyPress(...o);
     }, { context: [ae, "$text"] }), this.listenTo(n, "arrowKey", (...o) => {
       this._preventDefaultOnArrowKeyPress(...o);
@@ -39532,7 +39532,7 @@ class Nr extends b {
    */
   init() {
     const e = this.editor.editing, t = E.window.document;
-    this.set("selectedResizer", null), this.set("_activeResizer", null), e.view.addObserver(Qo), this._observer = new (Le())(), this.listenTo(e.view.document, "mousedown", this._mouseDownListener.bind(this), { priority: "high" }), this._observer.listenTo(t, "mousemove", this._mouseMoveListener.bind(this)), this._observer.listenTo(t, "mouseup", this._mouseUpListener.bind(this)), this._redrawSelectedResizerThrottled = Xn(() => this.redrawSelectedResizer(), 200), this.editor.ui.on("update", this._redrawSelectedResizerThrottled), this.editor.model.document.on("change", () => {
+    this.set("selectedResizer", null), this.set("_activeResizer", null), e.view.addObserver(Yo), this._observer = new (Le())(), this.listenTo(e.view.document, "mousedown", this._mouseDownListener.bind(this), { priority: "high" }), this._observer.listenTo(t, "mousemove", this._mouseMoveListener.bind(this)), this._observer.listenTo(t, "mouseup", this._mouseUpListener.bind(this)), this._redrawSelectedResizerThrottled = Xn(() => this.redrawSelectedResizer(), 200), this.editor.ui.on("update", this._redrawSelectedResizerThrottled), this.editor.model.document.on("change", () => {
       for (const [s, o] of this._resizers)
         s.isAttached() || (this._resizers.delete(s), o.destroy());
     }, { priority: "lowest" }), this._observer.listenTo(E.window, "resize", this._redrawSelectedResizerThrottled);
@@ -39795,7 +39795,7 @@ class Hs extends b {
     else {
       const s = this.editor.editing.view.domConverter.mapViewToDom(e);
       n = US(s), this._domEmitter.listenTo(n, "scroll", this._reconvertMarkerThrottled, { usePassive: !0 });
-      const o = new Y(n, this._reconvertMarkerThrottled);
+      const o = new Q(n, this._reconvertMarkerThrottled);
       this._scrollables.set(t, {
         domElement: n,
         resizeObserver: o
@@ -39964,7 +39964,7 @@ class WS extends b {
    */
   init() {
     const e = this.editor, t = e.editing.view;
-    this._draggedRange = null, this._draggingUid = "", this._draggableElement = null, t.addObserver(is), t.addObserver(Qo), this._setupDragging(), this._setupContentInsertionIntegration(), this._setupClipboardInputIntegration(), this._setupDraggableAttributeHandling(), this.listenTo(e, "change:isReadOnly", (n, s, o) => {
+    this._draggedRange = null, this._draggingUid = "", this._draggableElement = null, t.addObserver(is), t.addObserver(Yo), this._setupDragging(), this._setupContentInsertionIntegration(), this._setupClipboardInputIntegration(), this._setupDraggableAttributeHandling(), this.listenTo(e, "change:isReadOnly", (n, s, o) => {
       o ? this.forceDisabled("readOnlyMode") : this.clearForceDisabled("readOnlyMode");
     }), this.on("change:isEnabled", (n, s, o) => {
       o || this._finalizeDragging(!1);
@@ -40124,13 +40124,13 @@ class WS extends b {
    */
   _updatePreview({ dataTransfer: e, domTarget: t, clientX: n }) {
     const s = this.editor.editing.view, o = s.document.selection.editableElement, r = s.domConverter.mapViewToDom(o), a = E.window.getComputedStyle(r);
-    this._previewContainer ? this._previewContainer.firstElementChild && this._previewContainer.removeChild(this._previewContainer.firstElementChild) : (this._previewContainer = Ye(E.document, "div", {
+    this._previewContainer ? this._previewContainer.firstElementChild && this._previewContainer.removeChild(this._previewContainer.firstElementChild) : (this._previewContainer = Qe(E.document, "div", {
       style: "position: fixed; left: -999999px;"
     }), E.document.body.appendChild(this._previewContainer));
     const l = new B(r);
     if (r.contains(t))
       return;
-    const c = parseFloat(a.paddingLeft), u = Ye(E.document, "div");
+    const c = parseFloat(a.paddingLeft), u = Qe(E.document, "div");
     u.className = "ck ck-content", u.style.width = a.width, u.style.paddingLeft = `${l.left - n + c}px`, M.isiOS && (u.style.backgroundColor = "white"), u.innerHTML = e.getData("text/html"), e.setDragImage(u, 0, 0), this._previewContainer.appendChild(u);
   }
 }
@@ -40286,7 +40286,7 @@ class ZS extends b {
   init() {
     const e = this.editor, t = e.t, s = e.editing.view.document;
     e.commands.add("selectAll", new jS(e)), this.listenTo(s, "keydown", (o, r) => {
-      Qn(r) === KS && (e.execute("selectAll"), r.preventDefault());
+      Yn(r) === KS && (e.execute("selectAll"), r.preventDefault());
     }), e.accessibility.addKeystrokeInfos({
       keystrokes: [
         {
@@ -40339,7 +40339,7 @@ class XS extends b {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class QS extends b {
+class YS extends b {
   /**
    * @inheritDoc
    */
@@ -40412,7 +40412,7 @@ class sp extends V {
     const s = this.editor.model, o = s.document, r = [], a = e.map((c) => c.getTransformedByOperations(n)), l = a.flat();
     for (const c of a) {
       const u = c.filter((d) => d.root != o.graveyard).filter((d) => !eP(d, l));
-      u.length && (YS(u), r.push(u[0]));
+      u.length && (QS(u), r.push(u[0]));
     }
     r.length && s.change((c) => {
       c.setSelection(r, { backward: t });
@@ -40444,7 +40444,7 @@ class sp extends V {
     }
   }
 }
-function YS(i) {
+function QS(i) {
   i.sort((e, t) => e.start.isBefore(t.start) ? -1 : 1);
   for (let e = 1; e < i.length; e++) {
     const n = i[e - 1].getJoined(i[e], !0);
@@ -40615,7 +40615,7 @@ class oP extends b {
    * @inheritDoc
    */
   static get requires() {
-    return [HA, Ol, ar, QS, eS, mg, Fl];
+    return [HA, Ol, ar, YS, eS, mg, Fl];
   }
   /**
    * @inheritDoc
@@ -41542,7 +41542,7 @@ class MP extends b {
    * @param definition Converter definition out of input data.
    */
   _prepareAnyValueConverters(e) {
-    const t = this.editor, n = e.model.values.filter((s) => !Yo(String(s)) && !rg(String(s)));
+    const t = this.editor, n = e.model.values.filter((s) => !Qo(String(s)) && !rg(String(s)));
     if (n.length)
       throw new g("font-size-invalid-use-of-named-presets", null, { presets: n });
     t.conversion.for("downcast").attributeToElement({
@@ -42370,13 +42370,13 @@ class XP extends b {
     });
   }
 }
-const QP = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m12.5 5.7 5.2 3.9v1.3l-5.6 4c-.1.2-.3.2-.5.2-.3-.1-.6-.7-.6-1l.3-.4 4.7-3.5L11.5 7l-.2-.2c-.1-.3-.1-.6 0-.8.2-.2.5-.4.8-.4a.8.8 0 0 1 .4.1zm-5.2 0L2 9.6v1.3l5.6 4c.1.2.3.2.5.2.3-.1.7-.7.6-1 0-.1 0-.3-.2-.4l-5-3.5L8.2 7l.2-.2c.1-.3.1-.6 0-.8-.2-.2-.5-.4-.8-.4a.8.8 0 0 0-.3.1z"/></svg>';
+const YP = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m12.5 5.7 5.2 3.9v1.3l-5.6 4c-.1.2-.3.2-.5.2-.3-.1-.6-.7-.6-1l.3-.4 4.7-3.5L11.5 7l-.2-.2c-.1-.3-.1-.6 0-.8.2-.2.5-.4.8-.4a.8.8 0 0 1 .4.1zm-5.2 0L2 9.6v1.3l5.6 4c.1.2.3.2.5.2.3-.1.7-.7.6-1 0-.1 0-.3-.2-.4l-5-3.5L8.2 7l.2-.2c.1-.3.1-.6 0-.8-.2-.2-.5-.4-.8-.4a.8.8 0 0 0-.3.1z"/></svg>';
 /**
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 const Ws = "code";
-class YP extends b {
+class QP extends b {
   /**
    * @inheritDoc
    */
@@ -42391,7 +42391,7 @@ class YP extends b {
       editor: e,
       commandName: Ws,
       plugin: this,
-      icon: QP,
+      icon: YP,
       label: t("Code")
     });
     e.ui.componentFactory.add(Ws, () => {
@@ -42411,7 +42411,7 @@ class eR extends b {
    * @inheritDoc
    */
   static get requires() {
-    return [XP, YP];
+    return [XP, QP];
   }
   /**
    * @inheritDoc
@@ -44744,8 +44744,8 @@ function Wd(i, e, t, { dataPipeline: n } = {}) {
     if (!i.includes(r.attributeKey) || !s(d, u))
       return;
     const h = JR(d, c, t);
-    Tp(h, l, c), YR(h, l);
-    const f = QR(d, h, e, l, { dataPipeline: n });
+    Tp(h, l, c), QR(h, l);
+    const f = YR(d, h, e, l, { dataPipeline: n });
     e3(d, f, e, l);
   };
 }
@@ -44805,7 +44805,7 @@ function Tp(i, e, t) {
     }
   }
 }
-function QR(i, e, t, n, { dataPipeline: s }) {
+function YR(i, e, t, n, { dataPipeline: s }) {
   let o = n.createRangeOn(e);
   if (!gn(i))
     return o;
@@ -44820,7 +44820,7 @@ function QR(i, e, t, n, { dataPipeline: s }) {
   }
   return o;
 }
-function YR(i, e) {
+function QR(i, e) {
   let t = i.parent;
   for (; t.is("attributeElement") && ["ul", "ol", "li"].includes(t.name); ) {
     const n = t.parent;
@@ -45667,9 +45667,9 @@ class v3 extends V {
     const t = this.editor.model, n = t.schema, s = t.document.selection, o = Array.from(s.getSelectedBlocks()), r = e.forceValue === void 0 ? !this.value : e.forceValue;
     t.change((a) => {
       if (!r)
-        this._removeQuote(a, o.filter(Qs));
+        this._removeQuote(a, o.filter(Ys));
       else {
-        const l = o.filter((c) => Qs(c) || Qd(n, c));
+        const l = o.filter((c) => Ys(c) || Yd(n, c));
         this._applyQuote(a, l);
       }
     });
@@ -45679,7 +45679,7 @@ class v3 extends V {
    */
   _getValue() {
     const e = this.editor.model.document.selection, t = me(e.getSelectedBlocks());
-    return !!(t && Qs(t));
+    return !!(t && Ys(t));
   }
   /**
    * Checks whether the command can be enabled in the current context.
@@ -45690,7 +45690,7 @@ class v3 extends V {
     if (this.value)
       return !0;
     const e = this.editor.model.document.selection, t = this.editor.model.schema, n = me(e.getSelectedBlocks());
-    return n ? Qd(t, n) : !1;
+    return n ? Yd(t, n) : !1;
   }
   /**
    * Removes the quote from given blocks.
@@ -45721,12 +45721,12 @@ class v3 extends V {
   _applyQuote(e, t) {
     const n = [];
     Xd(e, t).reverse().forEach((s) => {
-      let o = Qs(s.start);
+      let o = Ys(s.start);
       o || (o = e.createElement("blockQuote"), e.wrap(s, o)), n.push(o);
     }), n.reverse().reduce((s, o) => s.nextSibling == o ? (e.merge(e.createPositionAfter(s)), s) : o);
   }
 }
-function Qs(i) {
+function Ys(i) {
   return i.parent.name == "blockQuote" ? i.parent : null;
 }
 function Xd(i, e) {
@@ -45738,7 +45738,7 @@ function Xd(i, e) {
   }
   return s;
 }
-function Qd(i, e) {
+function Yd(i, e) {
   const t = i.checkChild(e.parent, "blockQuote"), n = i.checkChild(["$root", "blockQuote"], e);
   return t && n;
 }
@@ -45946,7 +45946,7 @@ const E3 = /[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205f\u3000]/g, A3 = "
 function P3(i) {
   return i.is("attributeElement") && !!i.getCustomProperty("link");
 }
-function Yd(i, { writer: e }) {
+function Qd(i, { writer: e }) {
   const t = e.createAttributeElement("a", { href: i }, { priority: 5 });
   return e.setCustomProperty("link", !0, t), t;
 }
@@ -46272,7 +46272,7 @@ class dr extends b {
    */
   init() {
     const e = this.editor, t = this.editor.config.get("link.allowedProtocols");
-    e.model.schema.extend("$text", { allowAttributes: "linkHref" }), e.conversion.for("dataDowncast").attributeToElement({ model: "linkHref", view: Yd }), e.conversion.for("editingDowncast").attributeToElement({ model: "linkHref", view: (o, r) => Yd(Ap(o, t), r) }), e.conversion.for("upcast").elementToAttribute({
+    e.model.schema.extend("$text", { allowAttributes: "linkHref" }), e.conversion.for("dataDowncast").attributeToElement({ model: "linkHref", view: Qd }), e.conversion.for("editingDowncast").attributeToElement({ model: "linkHref", view: (o, r) => Qd(Ap(o, t), r) }), e.conversion.for("upcast").elementToAttribute({
       view: {
         name: "a",
         attributes: {
@@ -47192,7 +47192,7 @@ class Z3 extends b {
    */
   _applyAutoLink(e, t) {
     const n = this.editor.model, s = this.editor.config.get("link.defaultProtocol"), o = $l(e, s);
-    !this.isEnabled || !X3(t, n) || !xp(o) || Q3(t) || this._persistAutoLink(o, t);
+    !this.isEnabled || !X3(t, n) || !xp(o) || Y3(t) || this._persistAutoLink(o, t);
   }
   /**
    * Enqueues autolink changes in the model.
@@ -47219,7 +47219,7 @@ function ih(i) {
 function X3(i, e) {
   return e.schema.checkAttributeInSelection(e.createSelection(i), "linkHref");
 }
-function Q3(i) {
+function Y3(i) {
   const e = i.start.nodeAfter;
   return !!e && e.hasAttribute("linkHref");
 }
@@ -47227,7 +47227,7 @@ function Q3(i) {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class Y3 extends b {
+class Q3 extends b {
   /**
    * @inheritDoc
    */
@@ -48522,7 +48522,7 @@ function X7(i, e) {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-function Q7(i, e) {
+function Y7(i, e) {
   for (const t of i.getChildren())
     if (t.is("element", "google-sheets-html-origin")) {
       const n = i.getChildIndex(t);
@@ -48533,7 +48533,7 @@ function Q7(i, e) {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-function Y7(i, e) {
+function Q7(i, e) {
   for (const t of i.getChildren())
     t.is("element", "table") && t.getStyle("width") === "0px" && e.removeStyle("width", t);
 }
@@ -48570,7 +48570,7 @@ class n4 {
    */
   execute(e) {
     const t = new Bt(this.document), { body: n } = e._parsedData;
-    Q7(n, t), X7(n, t), Y7(n, t), e4(n, t), e.content = n;
+    Y7(n, t), X7(n, t), Q7(n, t), e4(n, t), e.content = n;
   }
 }
 /**
@@ -49491,7 +49491,7 @@ function zp(i, e) {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class Ys extends V {
+class Qs extends V {
   /**
    * Creates a new `MergeCellCommand` instance.
    *
@@ -50554,7 +50554,7 @@ class J4 extends V {
   execute() {
     const e = this.editor.model, t = this.editor.plugins.get(be);
     e.change((n) => {
-      const s = t.getSelectedTableCells(e.document.selection), o = s.shift(), { mergeWidth: r, mergeHeight: a } = Q4(o, s, t);
+      const s = t.getSelectedTableCells(e.document.selection), o = s.shift(), { mergeWidth: r, mergeHeight: a } = Y4(o, s, t);
       se("colspan", r, o, n), se("rowspan", a, o, n);
       for (const c of s)
         X4(c, o, n);
@@ -50570,7 +50570,7 @@ function kh(i) {
   const e = i.getChild(0);
   return i.childCount == 1 && e.is("element", "paragraph") && e.isEmpty;
 }
-function Q4(i, e, t) {
+function Y4(i, e, t) {
   let n = 0, s = 0;
   for (const c of e) {
     const { row: u, column: d } = t.getCellLocation(c);
@@ -50587,7 +50587,7 @@ function Th(i, e, t, n) {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class Y4 extends V {
+class Q4 extends V {
   /**
    * @inheritDoc
    */
@@ -50882,7 +50882,7 @@ class ks extends b {
     }), s.for("downcast").attributeToAttribute({ model: "rowspan", view: "rowspan" }), s.for("upcast").attributeToAttribute({
       model: { key: "rowspan", value: Eh("rowspan") },
       view: "rowspan"
-    }), e.config.define("table.defaultHeadings.rows", 0), e.config.define("table.defaultHeadings.columns", 0), e.commands.add("insertTable", new v4(e)), e.commands.add("insertTableRowAbove", new bh(e, { order: "above" })), e.commands.add("insertTableRowBelow", new bh(e, { order: "below" })), e.commands.add("insertTableColumnLeft", new wh(e, { order: "left" })), e.commands.add("insertTableColumnRight", new wh(e, { order: "right" })), e.commands.add("removeTableRow", new A4(e)), e.commands.add("removeTableColumn", new I4(e)), e.commands.add("splitTableCellVertically", new _h(e, { direction: "vertically" })), e.commands.add("splitTableCellHorizontally", new _h(e, { direction: "horizontally" })), e.commands.add("mergeTableCells", new J4(e)), e.commands.add("mergeTableCellRight", new Ys(e, { direction: "right" })), e.commands.add("mergeTableCellLeft", new Ys(e, { direction: "left" })), e.commands.add("mergeTableCellDown", new Ys(e, { direction: "down" })), e.commands.add("mergeTableCellUp", new Ys(e, { direction: "up" })), e.commands.add("setTableColumnHeader", new V4(e)), e.commands.add("setTableRowHeader", new R4(e)), e.commands.add("selectTableRow", new Y4(e)), e.commands.add("selectTableColumn", new eV(e)), tV(t), lV(t), this.listenTo(t.document, "change:data", () => {
+    }), e.config.define("table.defaultHeadings.rows", 0), e.config.define("table.defaultHeadings.columns", 0), e.commands.add("insertTable", new v4(e)), e.commands.add("insertTableRowAbove", new bh(e, { order: "above" })), e.commands.add("insertTableRowBelow", new bh(e, { order: "below" })), e.commands.add("insertTableColumnLeft", new wh(e, { order: "left" })), e.commands.add("insertTableColumnRight", new wh(e, { order: "right" })), e.commands.add("removeTableRow", new A4(e)), e.commands.add("removeTableColumn", new I4(e)), e.commands.add("splitTableCellVertically", new _h(e, { direction: "vertically" })), e.commands.add("splitTableCellHorizontally", new _h(e, { direction: "horizontally" })), e.commands.add("mergeTableCells", new J4(e)), e.commands.add("mergeTableCellRight", new Qs(e, { direction: "right" })), e.commands.add("mergeTableCellLeft", new Qs(e, { direction: "left" })), e.commands.add("mergeTableCellDown", new Qs(e, { direction: "down" })), e.commands.add("mergeTableCellUp", new Qs(e, { direction: "up" })), e.commands.add("setTableColumnHeader", new V4(e)), e.commands.add("setTableRowHeader", new R4(e)), e.commands.add("selectTableRow", new Q4(e)), e.commands.add("selectTableColumn", new eV(e)), tV(t), lV(t), this.listenTo(t.document, "change:data", () => {
       hV(t, e.editing), fV(t, e.editing);
     });
   }
@@ -52219,12 +52219,12 @@ function Vo(i) {
   return i = i.trim().toLowerCase(), jl(i) || og(i);
 }
 function Wi(i) {
-  return i = i.trim(), jl(i) || Yp(i) || Yo(i) || rg(i);
+  return i = i.trim(), jl(i) || Qp(i) || Qo(i) || rg(i);
 }
 function Xp(i) {
-  return i = i.trim(), jl(i) || Yp(i) || Yo(i);
+  return i = i.trim(), jl(i) || Qp(i) || Qo(i);
 }
-function Qp(i, e) {
+function Yp(i, e) {
   const t = new ke(), n = Kl(i.t);
   for (const s in n) {
     const o = {
@@ -52337,7 +52337,7 @@ function Bo(i) {
     }), e.bind("isEmpty", "isFocused").to(s), s;
   };
 }
-function Yp(i) {
+function Qp(i) {
   const e = parseFloat(i);
   return !Number.isNaN(e) && i === String(e);
 }
@@ -52570,7 +52570,7 @@ class RV extends T {
       tooltip: r
     }), c.fieldView.buttonView.bind("label").to(this, "borderStyle", (h) => l[h || "none"]), c.fieldView.on("execute", (h) => {
       this.borderStyle = h.source._borderStyleValue;
-    }), c.bind("isEmpty").to(this, "borderStyle", (h) => !h), Kt(c.fieldView, Qp(this, t.style), {
+    }), c.bind("isEmpty").to(this, "borderStyle", (h) => !h), Kt(c.fieldView, Yp(this, t.style), {
       role: "menu",
       ariaLabel: r
     });
@@ -53626,7 +53626,7 @@ class XV extends Sn {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class QV extends Sn {
+class YV extends Sn {
   /**
    * Creates a new `TableBorderStyleCommand` instance.
    *
@@ -53651,7 +53651,7 @@ class QV extends Sn {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class YV extends Sn {
+class QV extends Sn {
   /**
    * Creates a new `TableBorderWidthCommand` instance.
    *
@@ -53770,7 +53770,7 @@ class o6 extends b {
       color: s.borderColor,
       style: s.borderStyle,
       width: s.borderWidth
-    }), e.commands.add("tableBorderColor", new XV(e, s.borderColor)), e.commands.add("tableBorderStyle", new QV(e, s.borderStyle)), e.commands.add("tableBorderWidth", new YV(e, s.borderWidth)), a6(t, n, s.alignment), e.commands.add("tableAlignment", new n6(e, s.alignment)), Mh(t, n, {
+    }), e.commands.add("tableBorderColor", new XV(e, s.borderColor)), e.commands.add("tableBorderStyle", new YV(e, s.borderStyle)), e.commands.add("tableBorderWidth", new QV(e, s.borderWidth)), a6(t, n, s.alignment), e.commands.add("tableAlignment", new n6(e, s.alignment)), Mh(t, n, {
       modelAttribute: "tableWidth",
       styleName: "width",
       defaultValue: s.width
@@ -54025,7 +54025,7 @@ class u6 extends T {
       tooltip: r
     }), c.fieldView.buttonView.bind("label").to(this, "borderStyle", (h) => l[h || "none"]), c.fieldView.on("execute", (h) => {
       this.borderStyle = h.source._borderStyleValue;
-    }), c.bind("isEmpty").to(this, "borderStyle", (h) => !h), Kt(c.fieldView, Qp(this, t.style), {
+    }), c.bind("isEmpty").to(this, "borderStyle", (h) => !h), Kt(c.fieldView, Yp(this, t.style), {
       role: "menu",
       ariaLabel: r
     });
@@ -56267,7 +56267,7 @@ function Fo(i, e, t) {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class Ql extends wt {
+class Yl extends wt {
   /**
    * @inheritDoc
    */
@@ -56338,7 +56338,7 @@ class X6 extends V {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class Q6 extends V {
+class Y6 extends V {
   constructor(e) {
     super(e), this.decorate("cleanupImage");
   }
@@ -56402,7 +56402,7 @@ class cb extends b {
    */
   init() {
     const e = this.editor, t = e.conversion;
-    e.editing.view.addObserver(Ql), t.for("upcast").attributeToAttribute({
+    e.editing.view.addObserver(Yl), t.for("upcast").attributeToAttribute({
       view: {
         name: "img",
         key: "alt"
@@ -56415,7 +56415,7 @@ class cb extends b {
       },
       model: "srcset"
     });
-    const n = new X6(e), s = new Q6(e);
+    const n = new X6(e), s = new Y6(e);
     e.commands.add("insertImage", n), e.commands.add("replaceImageSource", s), e.commands.add("imageInsert", n);
   }
 }
@@ -56610,7 +56610,7 @@ class hb extends b {
    */
   _setupLoadListener() {
     const e = this.editor, t = e.model, n = e.editing, s = n.view, o = e.plugins.get("ImageUtils");
-    s.addObserver(Ql), this.listenTo(s.document, "imageLoaded", (r, a) => {
+    s.addObserver(Yl), this.listenTo(s.document, "imageLoaded", (r, a) => {
       const l = s.domConverter.mapDomToView(a.target);
       if (!l)
         return;
@@ -56710,7 +56710,7 @@ class fb extends b {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-class Y6 extends T {
+class Q6 extends T {
   /**
    * Creates a view for the dropdown panel of {@link module:image/imageinsert/imageinsertui~ImageInsertUI}.
    *
@@ -56847,7 +56847,7 @@ class Es extends b {
     }
     const a = this.dropdownView = we(e, o), l = s.map(({ observable: c }) => typeof c == "function" ? c() : c);
     return a.bind("isEnabled").toMany(l, "isEnabled", (...c) => c.some((u) => u)), a.once("change:isOpen", () => {
-      const c = s.map(({ formViewCreator: d }) => d(s.length == 1)), u = new Y6(t.locale, c);
+      const c = s.map(({ formViewCreator: d }) => d(s.length == 1)), u = new Q6(t.locale, c);
       a.panelView.children.add(u);
     }), a;
   }
@@ -58623,7 +58623,7 @@ class FM extends b {
    */
   _setupResizerCreator() {
     const e = this.editor, t = e.editing.view, n = e.plugins.get("ImageUtils");
-    t.addObserver(Ql), this.listenTo(t.document, "imageLoaded", (s, o) => {
+    t.addObserver(Yl), this.listenTo(t.document, "imageLoaded", (s, o) => {
       if (!o.target.matches(OM))
         return;
       const r = e.editing.view.domConverter, a = r.domToView(o.target), l = n.getImageWidgetFromImageView(a);
@@ -59217,7 +59217,7 @@ const $a = {
  * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-function QM(i) {
+function YM(i) {
   return (e, t, n) => {
     if (!n.consumable.consume(t.item, e.name))
       return;
@@ -59225,7 +59225,7 @@ function QM(i) {
     o && a.removeClass(o.className, r), s && a.addClass(s.className, r);
   };
 }
-function YM(i) {
+function QM(i) {
   const e = {
     imageInline: i.filter((t) => !t.isDefault && t.modelElements.includes("imageInline")),
     imageBlock: i.filter((t) => !t.isDefault && t.modelElements.includes("imageBlock"))
@@ -59278,7 +59278,7 @@ class Rb extends b {
    * and {@link module:image/image/imageblockediting~ImageBlockEditing `ImageBlockEditing`} plugins into consideration.
    */
   _setupConversion(e, t) {
-    const n = this.editor, s = n.model.schema, o = QM(this.normalizedStyles), r = YM(this.normalizedStyles);
+    const n = this.editor, s = n.model.schema, o = YM(this.normalizedStyles), r = QM(this.normalizedStyles);
     n.editing.downcastDispatcher.on("attribute:imageStyle", o), n.data.downcastDispatcher.on("attribute:imageStyle", o), e && (s.extend("imageBlock", { allowAttributes: "imageStyle" }), n.data.upcastDispatcher.on("element:figure", r, { priority: "low" })), t && (s.extend("imageInline", { allowAttributes: "imageStyle" }), n.data.upcastDispatcher.on("element:img", r, { priority: "low" }));
   }
   /**
@@ -60321,7 +60321,7 @@ class As extends pa(X5) {
       shouldToolbarGroupWhenFull: n,
       useMenuBar: s.isVisible
     });
-    this.ui = new sB(this, o), Q5(this);
+    this.ui = new sB(this, o), Y5(this);
   }
   /**
    * Destroys the editor instance, releasing all resources used by it.
@@ -60500,7 +60500,7 @@ function pB(i, e, t, n, s, o, r) {
   if (c !== 0)
     return new Fb(a, l, c);
 }
-const io = "replace", Xh = "delete", Qh = "insert", Yh = "equal", Gr = "none";
+const io = "replace", Xh = "delete", Yh = "insert", Qh = "equal", Gr = "none";
 function bB(i) {
   if (!i.findThese) throw new Error("params must have findThese key");
   if (!i.inThese) throw new Error("params must have inThese key");
@@ -60566,7 +60566,7 @@ function _B(i, e) {
   const s = [], o = {
     // 현재 위치에서의 수정 작업을 정의하기 위한 매핑입니다. false와 true 값의 조합을 통해 삽입, 삭제, 교체, 동일한 작업을 구분
     "false,false": io,
-    "true,false": Qh,
+    "true,false": Yh,
     "false,true": Xh,
     "true,true": Gr
   }, r = wB(i, e);
@@ -60576,11 +60576,11 @@ function _B(i, e) {
     f !== Gr && s.push({
       action: f,
       startInBefore: t,
-      endInBefore: f === Qh ? void 0 : u.startInBefore - 1,
+      endInBefore: f === Yh ? void 0 : u.startInBefore - 1,
       startInAfter: n,
       endInAfter: f === Xh ? void 0 : u.startInAfter - 1
     }), u.length !== 0 && s.push({
-      action: Yh,
+      action: Qh,
       startInBefore: u.startInBefore,
       endInBefore: u.endInBefore,
       startInAfter: u.startInAfter,
@@ -60589,7 +60589,7 @@ function _B(i, e) {
   }
   const a = [];
   let l = { action: Gr, startInBefore: 0, startInAfter: 0 };
-  const c = (u) => u.action !== Yh || u.endInBefore - u.startInBefore !== 0 ? !1 : /^\s$/.test(i[u.startInBefore]);
+  const c = (u) => u.action !== Qh || u.endInBefore - u.startInBefore !== 0 ? !1 : /^\s$/.test(i[u.startInBefore]);
   for (const u of s)
     c(u) && l.action === io || u.action === io && l.action === io ? (l.endInBefore = u.endInBefore, l.endInAfter = u.endInAfter) : (a.push(u), l = u);
   return a;
@@ -60608,7 +60608,7 @@ function tf(i, e, t) {
   const o = e.length;
   for (; s < o; ) {
     const r = ef(s, e, mB);
-    if (s += r.length, r.length !== 0 && (r.some((l) => l.includes("<img")) ? n += r.join("").replace("<img", `<img style="${t === "insert" ? "background: rgba(0, 195, 81, 0.25);padding: 10px;" : "background: rgba(245, 97, 65, 0.25);padding: 10px;"}" `) : n += `<${i} style="background-color: ${t === "insert" ? "rgba(0, 195, 81, 0.25)" : "rgba(245, 97, 65, 0.25)"}; ${t === "delete" ? "text-decoration: line-through" : "font-weight: bold"}">${r.join("")}</${i}>`), s >= o) break;
+    if (s += r.length, r.length !== 0 && (r.some((l) => l.includes("<img")) ? n += r.join("").replace("<img", `<img class="Diff-Editor-Image-${t === "insert" ? "Insert" : "Delete"}" `) : n += `<${i} style="background-color: ${t === "insert" ? "rgba(102, 229, 119, .35)" : "rgba(229, 102, 134,.35)"}; ${t === "delete" ? "text-decoration: line-through" : "font-weight: bold"}">${r.join("")}</${i}>`), s >= o) break;
     const a = ef(s, e, gB);
     s += a.length, n += a.join("");
   }
@@ -60748,7 +60748,7 @@ const yB = [
     u3,
     _3,
     k3,
-    Y3,
+    Q3,
     v7,
     c4,
     xV,
@@ -60795,15 +60795,15 @@ const yB = [
 }, kB = async () => {
   const { editor: i } = await CB({
     targetId: "sample-diff-editor",
-    beforeText: "Same content, removed this!!",
-    afterText: "Same content, added this!!"
+    beforeText: "Your content, removed this!!",
+    afterText: "Your content, added this!!"
   }), { editor: e } = await nf({
     targetId: "sample-diff-editor-before",
-    initialData: "Same content, removed this!!"
+    initialData: "Your content, removed this!!"
   }), { editor: t } = await nf({
     targetId: "sample-diff-editor-after",
     placeholder: "Please enter content",
-    initialData: "Same content, added this!!"
+    initialData: "Your content, added this!!"
   });
   return {
     diffEditor: i,
