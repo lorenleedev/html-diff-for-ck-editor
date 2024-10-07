@@ -1,0 +1,27 @@
+{
+  "name": "html-diff-for-ck-editor",
+  "version": "1.0.0-canary",
+  "description": "Rendered Html Diff Library For CK-Editor",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lorenleedev/html-diff-for-ck-editor.git"
+  },
+  "author": "Loren Lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lorenleedev/html-diff-for-ck-editor/issues"
+  },
+  "homepage": "https://github.com/lorenleedev/html-diff-for-ck-editor#readme",
+  "dependencies": {
+    "@types/jest": "^29.5.13",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8",
+    "vite-plugin-dts": "^4.2.3"
+  }
+}
