@@ -1,6 +1,6 @@
 {
   "name": "@lorenleedev/html-diff-for-ck-editor",
-  "version": "1.0.2-canary",
+  "version": "1.0.3-canary",
   "description": "Rendered Html Diff Library For CK-Editor",
   "main": "index.js",
   "module": "dist/index.mjs",
