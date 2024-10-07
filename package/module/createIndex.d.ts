@@ -17,21 +17,8 @@
  *   orange: [2]
  * }
  */
-function createIndex(params: { findThese: string[]; inThese: string[] }): Record<string, number[]> {
-  if (!params.findThese) throw new Error('params must have findThese key');
-  if (!params.inThese) throw new Error('params must have inThese key');
-
-  const index: Record<string, number[]> = {};
-  for (const token of params.findThese) {
-    index[token] = [];
-    let idx = params.inThese.indexOf(token);
-    while (idx !== -1) {
-      index[token].push(idx);
-      idx = params.inThese.indexOf(token, idx + 1);
-    }
-  }
-
-  return index;
-}
-
+declare function createIndex(params: {
+    findThese: string[];
+    inThese: string[];
+}): Record<string, number[]>;
 export default createIndex;
