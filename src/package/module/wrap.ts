@@ -12,9 +12,10 @@ function wrap(tag: string, content: string[], type: 'insert' | 'delete'): string
     position += nonTags.length;
     if (nonTags.length !== 0) {
       if (nonTags.some(item => item.includes('<img'))) {
-        rendering += nonTags.join('').replace('<img', `<img style="${type==='insert' ? 'background: rgba(0, 195, 81, 0.25);padding: 10px;' : 'background: rgba(245, 97, 65, 0.25);padding: 10px;'}" `);
+        rendering += nonTags.join('').replace('<img', `<img class="Diff-Editor-Image-${type==='insert' ? 'Insert' : 'Delete'}" `);
+        // rendering += nonTags.join('').replace('<img', `<img style="${type==='insert' ? 'background: rgba(102, 229, 119, .35);padding: 10px;' : 'background: rgba(229, 102, 134,.35);padding: 10px;'}" `);
       } else {
-        rendering += `<${tag} style="background-color: ${type === 'insert' ? 'rgba(0, 195, 81, 0.25)' : 'rgba(245, 97, 65, 0.25)'}; ${type==='delete' ? 'text-decoration: line-through':'font-weight: bold' }">${nonTags.join('')}</${tag}>`;
+        rendering += `<${tag} style="background-color: ${type === 'insert' ? 'rgba(102, 229, 119, .35)' : 'rgba(229, 102, 134,.35)'}; ${type==='delete' ? 'text-decoration: line-through':'font-weight: bold' }">${nonTags.join('')}</${tag}>`;
       }
     }
 

@@ -254,19 +254,19 @@ const initDiffModeEditor = async ({
 const initialize= async () => {
   const {editor:diffEditor} = await initDiffModeEditor({
     targetId: 'sample-diff-editor',
-    beforeText: 'Same content, removed this!!',
-    afterText: 'Same content, added this!!'
+    beforeText: 'Your content, removed this!!',
+    afterText: 'Your content, added this!!'
   });
 
   const {editor: beforeEditor} = await initEditor({
     targetId: 'sample-diff-editor-before',
-    initialData: 'Same content, removed this!!'
+    initialData: 'Your content, removed this!!'
   });
 
   const {editor: afterEditor} = await initEditor({
     targetId: 'sample-diff-editor-after',
     placeholder: 'Please enter content',
-    initialData: 'Same content, added this!!'
+    initialData: 'Your content, added this!!'
   });
 
   return {
