@@ -46,7 +46,7 @@ import {ClassicEditor} from '@ckeditor/ckeditor5-editor-classic';
 import CustomFigureAttributes from "./CustomFigureAttributes.js"
 
 // TODO: ../package/main.ts를 완성 후 변경
-import diff from "../sample/temp.ts";
+import diff from "../package/main.ts";
 
 export interface InitEditorResponse {
   editor: ClassicEditor | null;
